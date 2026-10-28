@@ -1,0 +1,565 @@
+/* ============================================
+   ESTILOS GENERALES
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #fff8f0;
+  color: #333;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+header {
+  background: linear-gradient(135deg, #ff8fa3, #ffb3c6);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   BOTÓN CARRITO EN HEADER
+============================================ */
+.btn-carrito {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: white;
+  color: #d6336c;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.btn-carrito:hover {
+  transform: scale(1.1);
+}
+
+.btn-carrito.animar {
+  animation: brincar 0.4s ease;
+}
+
+@keyframes brincar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+#contador-carrito {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #e63946;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   CATEGORÍAS
+============================================ */
+.categorias {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.categorias h2 {
+  margin-bottom: 20px;
+  color: #d6336c;
+}
+
+.botones-categorias {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-cat {
+  background: #ff8fa3;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-cat:hover {
+  background: #d6336c;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   CATÁLOGO
+============================================ */
+.catalogo {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.catalogo h2 {
+  color: #d6336c;
+  margin-bottom: 30px;
+}
+
+.oculto {
+  display: none;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.producto {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  position: relative;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.producto p {
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.producto span {
+  color: #d6336c;
+  font-weight: bold;
+}
+
+/* ============================================
+   AVISO DE AGOTADO
+============================================ */
+.producto.agotado::before {
+  content: "AGOTADO";
+  position: absolute;
+  top: 25px;
+  right: -8px;
+  background: #e63946;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 6px 0 0 6px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  transform: rotate(-3deg);
+}
+
+.producto.agotado img {
+  filter: grayscale(60%) brightness(0.8);
+}
+
+.producto.agotado span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* ============================================
+   BOTÓN AGREGAR EN CADA PRODUCTO
+============================================ */
+.btn-agregar {
+  margin-top: 12px;
+  background: #d6336c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-agregar:hover {
+  background: #b02a5b;
+  transform: translateY(-2px);
+}
+
+.btn-agregar:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   PANEL LATERAL DEL CARRITO
+============================================ */
+.panel-carrito {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 380px;
+  max-width: 100%;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.panel-carrito.abierto {
+  right: 0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #ff8fa3;
+  color: white;
+}
+
+.panel-header h2 {
+  font-size: 1.2rem;
+}
+
+.cerrar {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lista-carrito {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.carrito-vacio {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+}
+
+.item-carrito {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.item-carrito img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.item-info span {
+  color: #d6336c;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.cantidad-controles button {
+  background: #ff8fa3;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-eliminar {
+  background: none;
+  border: none;
+  color: #e63946;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.panel-footer {
+  padding: 20px;
+  border-top: 2px solid #eee;
+  background: #fff8f0;
+}
+
+.panel-footer p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.btn-finalizar {
+  width: 100%;
+  background: #25d366;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-finalizar:hover {
+  background: #1eb155;
+}
+
+/* ============================================
+   OVERLAY
+============================================ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+
+.overlay.activo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ============================================
+   FOOTER + REDES SOCIALES
+============================================ */
+footer {
+  background: #ffb3c6;
+  color: white;
+  text-align: center;
+  padding: 30px 20px 20px;
+  margin-top: 40px;
+}
+
+.redes-sociales {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.redes-sociales h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.iconos-redes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: white;
+  color: #d6336c;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.iconos-redes a:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: white;
+}
+
+.iconos-redes a:nth-child(1):hover { background: #1877f2; } /* Facebook */
+.iconos-redes a:nth-child(2):hover { background: #e4405f; } /* Instagram */
+.iconos-redes a:nth-child(3):hover { background: #000000; } /* TikTok */
+.iconos-redes a:nth-child(4):hover { background: #25d366; } /* WhatsApp */
+.iconos-redes a:nth-child(5):hover { background: #d44638; } /* Correo */
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 480px) {
+  .panel-carrito {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-carrito {
+    width: 42px;
+    height: 42px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+/* ============================================
+   SECCIÓN DE PROMOCIONES (CON FOTOS)
+============================================ */
+.promociones {
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe4ec, #ede4ff);
+}
+
+.promociones h2 {
+  color: #d6336c;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo-promo {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.galeria-promos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.promo-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.promo-imagen {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.promo-imagen img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.promo-card:hover .promo-imagen img {
+  transform: scale(1.08);
+}
+
+/* Etiqueta de descuento */
+.etiqueta-descuento {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e63946;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.promo-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.promo-info h3 {
+  margin-bottom: 6px;
+  color: #d6336c;
+  font-size: 1.1rem;
+}
+
+.promo-info p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .promociones h2 {
+    font-size: 1.5rem;
+  }
+
+  .promo-imagen img {
+    height: 180px;
+  }
+}

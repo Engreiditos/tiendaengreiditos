@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENGREIDITOS 🐾 - Tienda</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>🐾 ENGREIDITOS</h1>
+    <p>Consiente a tu mascota como se merece</p>
+
+    <!-- ICONO CARRITO -->
+    <button id="btn-carrito" class="btn-carrito" aria-label="Abrir carrito">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="contador-carrito">0</span>
+    </button>
+  </header>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias">
+    <h2>Nuestras Categorías</h2>
+    <div class="botones-categorias">
+      <button class="btn-cat" onclick="mostrarCategoria('perros')">🐶 Perros</button>
+      <button class="btn-cat" onclick="mostrarCategoria('gatos')">🐱 Gatos</button>
+    </div>
+  </section>
+
+    <!-- ============================================
+       SECCIÓN DE PROMOCIONES (CON FOTOS)
+  ============================================ -->
+  <section class="promociones">
+    <h2>🎉 Promociones Especiales</h2>
+    <p class="subtitulo-promo">Aprovecha nuestras ofertas por tiempo limitado</p>
+
+    <div class="galeria-promos">
+
+      <!-- PROMO 1 -->
+      <div class="promo-card">
+        <div class="promo-imagen">
+          <img src="img/promo1.jpg" alt="Promo 1 - Juguetes con descuento">
+          <span class="etiqueta-descuento">-30%</span>
+        </div>
+        <div class="promo-info">
+          <h3>Juguetes con descuento</h3>
+          <p>Hasta 30% de descuento en juguetes seleccionados 🐶</p>
+        </div>
+      </div>
+
+      <!-- PROMO 2 -->
+      <div class="promo-card">
+        <div class="promo-imagen">
+          <img src="img/promo2.jpg" alt="Promo 2 - Combo para gatos">
+          <span class="etiqueta-descuento">2x1</span>
+        </div>
+        <div class="promo-info">
+          <h3>Combo para gatos</h3>
+          <p>Rascador + cama con envío gratis 🐱</p>
+        </div>
+      </div>
+
+      <!-- PROMO 3 -->
+      <div class="promo-card">
+        <div class="promo-imagen">
+          <img src="img/promo3.jpg" alt="Promo 3 - Novedades de temporada">
+          <span class="etiqueta-descuento">NUEVO</span>
+        </div>
+        <div class="promo-info">
+          <h3>Novedades de temporada</h3>
+          <p>Conoce los nuevos accesorios para tu engreído 🐾</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATÁLOGO PERROS -->
+  <section id="perros" class="catalogo oculto">
+    <h2>Catálogo Perros 🐶</h2>
+    <div class="galeria">
+
+      <div class="producto" data-id="1" data-nombre="Juguete mordedor" data-precio="25">
+        <img src="img/cat1-1.jpg" alt="Juguete mordedor para perro">
+        <p>Juguete mordedor</p>
+        <span>S/ 25.00</span>
+        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" data-id="2" data-nombre="Collar ajustable" data-precio="35">
+        <img src="img/cat1-2.jpg" alt="Collar ajustable para perro">
+        <p>Collar ajustable</p>
+        <span>S/ 35.00</span>
+         <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CATÁLOGO GATOS -->
+  <section id="gatos" class="catalogo oculto">
+    <h2>Catálogo Gatos 🐱</h2>
+    <div class="galeria">
+
+      <div class="producto agotado" data-id="3" data-nombre="Rascador premium" data-precio="60">
+        <img src="img/cat2-1.jpg" alt="Rascador premium para gato">
+        <p>Rascador premium</p>
+        <span>S/ 60.00</span>
+        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" data-id="4" data-nombre="Cama suave" data-precio="45">
+        <img src="img/cat2-2.jpg" alt="Cama suave para gato">
+        <p>Cama suave</p>
+        <span>S/ 45.00</span>
+        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PANEL DEL CARRITO (lateral) -->
+  <div id="panel-carrito" class="panel-carrito">
+    <div class="panel-header">
+      <h2><i class="fas fa-shopping-cart"></i> Tu Carrito</h2>
+      <button id="cerrar-carrito" class="cerrar" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div id="lista-carrito" class="lista-carrito">
+      <!-- Aquí se cargan los productos con JavaScript -->
+    </div>
+    <div class="panel-footer">
+      <p>Total: <strong id="total-carrito">S/ 0.00</strong></p>
+      <button class="btn-finalizar" onclick="finalizarCompra()">
+        <i class="fab fa-whatsapp"></i> Finalizar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Fondo oscuro cuando el carrito se abre -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="redes-sociales">
+      <h3>Síguenos 🐾</h3>
+      <div class="iconos-redes">
+        <a href="https://facebook.com/TU_PAGINA" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/TU_USUARIO" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://tiktok.com/@TU_USUARIO" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.me/51999999999" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:tu-correo@gmail.com" aria-label="Correo">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+    <p>© 2025 ENGREIDITOS - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
