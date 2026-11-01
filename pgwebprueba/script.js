@@ -1,11 +1,20 @@
 // ============================================
 // NAVEGACIÓN ENTRE CATEGORÍAS
 // ============================================
-function mostrarCategoria(categoria) {
+function mostrarCategoria(categoria, boton) {
+  // Ocultar todos los catálogos
   document.querySelectorAll('.catalogo').forEach(sec => {
     sec.classList.add('oculto');
   });
+
+  // Mostrar el seleccionado
   document.getElementById(categoria).classList.remove('oculto');
+
+  // Cerrar el menú después de elegir
+  const menu = document.getElementById('dropdown-menu');
+  if (menu) menu.classList.remove('abierto');
+
+  // Scroll suave al catálogo
   document.getElementById(categoria).scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -146,9 +155,81 @@ function finalizarCompra() {
 
   mensaje += `\n*Total: S/ ${total.toFixed(2)}*`;
 
-  const telefono = '51999999999'; // 👈 CAMBIA por tu número real
+  const telefono = '51937317265'; // 👈 CAMBIA por tu número real
   window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
 // Inicializar
 actualizarCarrito();
+
+// ============================================
+// MODAL DE PRODUCTO
+// ============================================
+let productoActual = null;
+
+function abrirModal(elemento) {
+  const modal = document.getElementById('modal-producto');
+  productoActual = elemento;
+
+  // Cargar datos
+  document.getElementById('modal-img').src = elemento.dataset.img;
+  document.getElementById('modal-img').alt = elemento.dataset.nombre;
+  document.getElementById('modal-nombre').textContent = elemento.dataset.nombre;
+  document.getElementById('modal-precio').textContent = `S/ ${parseFloat(elemento.dataset.precio).toFixed(2)}`;
+  document.getElementById('modal-desc').textContent = elemento.dataset.desc;
+
+  // Cargar características (separadas por |)
+  const lista = document.getElementById('modal-carac');
+  lista.innerHTML = '';
+  const caracteristicas = elemento.dataset.carac.split('|');
+  caracteristicas.forEach(c => {
+    if (c.trim()) {
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-check"></i> ${c.trim()}`;
+      lista.appendChild(li);
+    }
+  });
+
+  // Botón agregar del modal
+  const btnAgregar = document.getElementById('modal-btn-agregar');
+  btnAgregar.onclick = () => {
+    agregarAlCarrito(elemento.querySelector('.btn-agregar'));
+    cerrarModal();
+  };
+
+  modal.classList.add('activo');
+  document.body.style.overflow = 'hidden'; // bloquea scroll de fondo
+}
+
+function cerrarModal() {
+  document.getElementById('modal-producto').classList.remove('activo');
+  document.body.style.overflow = '';
+}
+
+// Cerrar modal al hacer clic fuera del contenido
+document.getElementById('modal-producto').addEventListener('click', (e) => {
+  if (e.target.id === 'modal-producto') cerrarModal();
+});
+
+// Cerrar modal con la tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') cerrarModal();
+});
+
+// ============================================
+// MENÚ DESPLEGABLE DE CATEGORÍAS
+// ============================================
+function toggleDropdown(event) {
+  event.stopPropagation();
+  const menu = document.getElementById('dropdown-menu');
+  menu.classList.toggle('abierto');
+}
+
+// Cerrar el menú al hacer clic fuera
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('dropdown-menu');
+  const dropdown = document.querySelector('.dropdown');
+  if (menu && dropdown && !dropdown.contains(e.target)) {
+    menu.classList.remove('abierto');
+  }
+});
