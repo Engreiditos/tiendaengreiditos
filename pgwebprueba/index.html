@@ -11,8 +11,8 @@
 
   <!-- HEADER -->
   <header>
-    <h1>🐾 ENGREIDITOS</h1>
-    <p>Consiente a tu mascota como se merece</p>
+    <h1>🐾 TIENDA ENGREIDITOS 👶</h1>
+    <p>Consientelo como se merece</p>
 
     <!-- ICONO CARRITO -->
     <button id="btn-carrito" class="btn-carrito" aria-label="Abrir carrito">
@@ -21,17 +21,34 @@
     </button>
   </header>
 
-  <!-- CATEGORÍAS -->
-  <section class="categorias">
-    <h2>Nuestras Categorías</h2>
-    <div class="botones-categorias">
-      <button class="btn-cat" onclick="mostrarCategoria('perros')">🐶 Perros</button>
-      <button class="btn-cat" onclick="mostrarCategoria('gatos')">🐱 Gatos</button>
-    </div>
-  </section>
 
-    <!-- ============================================
-       SECCIÓN DE PROMOCIONES (CON FOTOS)
+
+
+  <!-- ============================================
+       FRANJA DE CATEGORÍAS CON MENÚ DESPLEGABLE
+  ============================================ -->
+  <nav class="navbar-categorias">
+    <div class="dropdown">
+      <button class="nav-cat dropdown-toggle" onclick="toggleDropdown(event)">
+        <i class="fas fa-list"></i> Categorías
+        <i class="fas fa-chevron-down flecha"></i>
+      </button>
+
+      <div class="dropdown-menu" id="dropdown-menu">
+        <button class="dropdown-item" onclick="mostrarCategoria('perros', this)">
+          <i class="fas fa-baby"></i> KIDS
+        </button>
+        <button class="dropdown-item" onclick="mostrarCategoria('gatos', this)">
+          <i class="fas fa-dog"></i> PETS
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+
+     <!-- ============================================
+       SECCIÓN DE PROMOCIONES (CON PRODUCTOS REALES)
   ============================================ -->
   <section class="promociones">
     <h2>🎉 Promociones Especiales</h2>
@@ -39,89 +56,357 @@
 
     <div class="galeria-promos">
 
-      <!-- PROMO 1 -->
-      <div class="promo-card">
+      <!-- PROMO 1: NUEVO -->
+      <div class="promo-card producto" onclick="abrirModal(this)"
+           data-id="promo1" data-nombre="KIT DE CORTAUÑA GRANDE MODELO ISOPO" data-precio="15"
+           data-img="img/KITCORTAUÑAS.jpg"
+           data-desc=""
+           data-carac="Kit de 10 piezas|Trae: Corta uñas, 2 peines, lima manual, tijerita, cepillo dedal, limpiaoidos, pinza de limpieza, aspirador y dispensador de medicina|Colores: Azul y rosa">
         <div class="promo-imagen">
-          <img src="img/promo1.jpg" alt="Promo 1 - Juguetes con descuento">
-          <span class="etiqueta-descuento">-30%</span>
+          <img src="img/KITCORTAUÑAS.jpg" alt="Kit de bienvenida para cachorro">
+          <span class="etiqueta-descuento nuevo">NUEVO</span>
         </div>
         <div class="promo-info">
-          <h3>Juguetes con descuento</h3>
-          <p>Hasta 30% de descuento en juguetes seleccionados 🐶</p>
+          <h3>KIT DE CORTAUÑA GRANDE MODELO ISOPO</h3>
+          <p class="promo-precio">S/ 15.00 <small><s> </s></small></p>
+          <p>Kit de 10 piezas, ideal para el cuidado de su bebe.</p>
+          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+            <i class="fas fa-cart-plus"></i> Agregar
+          </button>
         </div>
       </div>
 
-      <!-- PROMO 2 -->
-      <div class="promo-card">
+      <!-- PROMO 2: NUEVO -->
+      <div class="promo-card producto" onclick="abrirModal(this)"
+           data-id="promo2" data-nombre="Promo spa engreiditos" data-precio="12"
+           data-img="img/PROMOPET1.jpeg"
+           data-desc="¡Mantén a tu mascota saludable, limpia y cómoda con este increíble combo de aseo profesional! Hemos unido dos herramientas esenciales para el cuidado diario de tu engreído en una sola oferta."
+           data-carac="Cepillo de cerdas metalicas|Set Alicate Corta Uñas y Lima">
         <div class="promo-imagen">
-          <img src="img/promo2.jpg" alt="Promo 2 - Combo para gatos">
-          <span class="etiqueta-descuento">2x1</span>
+          <img src="img/PROMOPET1.jpeg" alt="Combo relax para gatos">
+          <span class="etiqueta-descuento nuevo">NUEVO</span>
         </div>
         <div class="promo-info">
-          <h3>Combo para gatos</h3>
-          <p>Rascador + cama con envío gratis 🐱</p>
+          <h3>Promo spa engreiditos</h3>
+          <p class="promo-precio">S/ 12.00 <small><s></s></small></p>
+          <p>Cepillo de Cerdas Metálicas + Set de Corte de Uñas y Lima 🐶</p>
+          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+            <i class="fas fa-cart-plus"></i> Agregar
+          </button>
         </div>
       </div>
 
-      <!-- PROMO 3 -->
-      <div class="promo-card">
+      <!-- PROMO 3: NUEVO -->
+      <div class="promo-card producto" onclick="abrirModal(this)"
+           data-id="promo3" data-nombre="Mochila anticaidas - Diseños de Animalitos" data-precio="30"
+           data-img="img/MOCHILAANTICAIDA.jpeg"
+           data-desc="Nuestra mochila anticaída está diseñada especialmente para proteger la espalda y la cabeza de tu pequeño mientras aprende a caminar, brindándote a ti la tranquilidad que necesitas."
+           data-carac="Fabricada con felpa de alta calidad, suave al tacto y ligera|Cuenta con correas ajustables en los hombros que se adaptan al cuerpo del bebé|Disponible en una variedad de adorables animalitos (Elefante, Koala, León, Cerdito, Abejita, entre otros)">
         <div class="promo-imagen">
-          <img src="img/promo3.jpg" alt="Promo 3 - Novedades de temporada">
-          <span class="etiqueta-descuento">NUEVO</span>
+          <img src="img/MOCHILAANTICAIDA.jpeg" alt="Pack de juguetes interactivos">
+          <span class="etiqueta-descuento nuevo">VOLVIERON</span>
         </div>
         <div class="promo-info">
-          <h3>Novedades de temporada</h3>
-          <p>Conoce los nuevos accesorios para tu engreído 🐾</p>
+          <h3>Mochilas anticaidas -  Diseños de Animalitos</h3>
+          <p class="promo-precio">S/ 30.00 <small><s></s></small></p>
+          <p>¡Acompaña a tu bebé en sus primeros pasos con seguridad!</p>
+          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+            <i class="fas fa-cart-plus"></i> Agregar
+          </button>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CATÁLOGO PERROS -->
+     <!-- ============================================
+       CATÁLOGO kids (5 productos)
+  ============================================ -->
   <section id="perros" class="catalogo oculto">
-    <h2>Catálogo Perros 🐶</h2>
+    <h2>Catálogo kids👶</h2>
     <div class="galeria">
 
-      <div class="producto" data-id="1" data-nombre="Juguete mordedor" data-precio="25">
-        <img src="img/cat1-1.jpg" alt="Juguete mordedor para perro">
-        <p>Juguete mordedor</p>
-        <span>S/ 25.00</span>
-        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p1" data-nombre="PAR DE MEDIAS CARRUSEL FELPA ESTIMULADORAS MODELO ANIMALITOS " data-precio="6"
+           data-img="img/MEDIASFELPA.jpg"
+           data-desc=""
+           data-carac="Suaves, abrigadoras y cómodas gracias a su material de felpa delicada|Diseños divertidos que entretienen mientras protegen los piecitos">
+        <img src="img/MEDIASFELPA.jpg" alt="Juguete mordedor">
+        <p>PAR DE MEDIAS CARRUSEL FELPA ESTIMULADORAS MODELO ANIMALITOS</p>
+        <span>S/ 6.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
 
-      <div class="producto" data-id="2" data-nombre="Collar ajustable" data-precio="35">
-        <img src="img/cat1-2.jpg" alt="Collar ajustable para perro">
-        <p>Collar ajustable</p>
-        <span>S/ 35.00</span>
-         <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p2" data-nombre="TRIPACK DE MEDIAS QILING ALGODON IMPORTADO ANTIDESLIZANTE MODELO FLOR" data-precio="12"
+           data-img="img/MEDIASDESLIZANTES.jpg"
+           data-desc=""
+           data-carac="Material: Algodon|Tallas: 0-6M, 6-12M, 12-24M">
+        <img src="img/MEDIASDESLIZANTES.jpg" alt="Collar ajustable">
+        <p>TRIPACK DE MEDIAS QILING ALGODON IMPORTADO ANTIDESLIZANTE MODELO FLOR </p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
+        </button>
       </div>
 
-    </div>
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p3" data-nombre="LIMADOR DE UÑAS PARA BEBES PRESENTACION EN CAJA AZUL Y ROSA" data-precio="16"
+           data-img="img/LIMADOR.jpg"
+           data-desc="Diseñada para recortar y pulir las uñitas de tu bebe de forma segura."
+           data-carac="Varios niveles de velocidad|luz led para mayor precision|silenciosa|Colores: Azul y rosa">
+        <img src="img/LIMADOR.jpg" alt="Cama acolchada">
+        <p>LIMADOR DE UÑAS PARA BEBES PRESENTACION EN CAJA AZUL Y ROSA</p>
+        <span>S/ 16.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p4" data-nombre="KIT DE CORTAUÑA GRANDE MODELO ISOPO" data-precio="15"
+           data-img="img/KITCORTAUÑAS.jpg"
+           data-desc=""
+           data-carac="Kit de piezas|Trae: Corta uñas, 2 peines, lima manual, tijerita, cepillo dedal, limpiaoidos, pinza de limpieza, aspirador y dispensador de medicina|Colores: Azul y rosa">
+        <img src="img/KITCORTAUÑAS.jpg" alt="Plato doble">
+        <p>KIT DE CORTAUÑA GRANDE MODELO ISOPO</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p5" data-nombre="EXTRACTOR DE LECHE SANTOLEE MODELO ECO" data-precio="30"
+           data-img="img/EXTRACTOR.jpg"
+           data-desc=""
+           data-carac="Diseño compato y ligero|Libre de BPA|Colores: blanco y melon">
+        <img src="img/EXTRACTOR.jpg" alt="Correa retráctil">
+        <p>EXTRACTOR DE LECHE SANTOLEE MODELO ECO</p>
+        <span>S/ 30.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p5" data-nombre="SET DE TOALLA SARAI EN BLISTER" data-precio="35"
+           data-img="img/SETTOALLA.jpg"
+           data-desc=""
+           data-carac="Material: Felpa|Set de 4 piezas| Lleva: Toalla grande, salida de baño, babita y manopla ">
+        <img src="img/SETTOALLA.jpg" alt="Correa retráctil">
+        <p>SET DE TOALLA SARAI EN BLISTER</p>
+        <span>S/ 35.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+     <div class="producto" onclick="abrirModal(this)"
+           data-id="p5" data-nombre="TOALLA ECONOMICA 4 PIEZAS FELPA" data-precio="11"
+           data-img="img/TOALLAECO.jpg"
+           data-desc=""
+           data-carac="Material: Felpa|Set de 4 piezas| Lleva: Toalla grande, babero, babita y peine">
+        <img src="img/TOALLAECO.jpg" alt="Correa retráctil">
+        <p>TOALLA ECONOMICA FELPA</p>
+        <span>S/ 11.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+  
+
+     <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON POLLITO DE LANA" data-precio="9"
+           data-img="img/ROPONPOLLITO.jpg"
+           data-desc=""
+           data-carac="Material: Lana|Set de 4 piezas">
+        <img src="img/ROPONPOLLITO.jpg" alt="Correa retráctil">
+        <p>ROPON POLLITO DE LANA</p>
+        <span>S/ 9.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON ROYER POLAR CON PECHO IMPERMEABLE" data-precio="12"
+           data-img="img/ROPONROYER.jpg"
+           data-desc=""
+           data-carac="Material: Polar">
+        <img src="img/ROPONROYER.jpg" alt="Correa retráctil">
+        <p>ROPON ROYER POLAR CON PECHO IMPERMEABLE</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON DE LANA MODELO GALLINA" data-precio="14"
+           data-img="img/ROPONGALLINA.jpg"
+           data-desc=""
+           data-carac="Material: Lana">
+        <img src="img/ROPONGALLINA.jpg" alt="Correa retráctil">
+        <p>ROPON DE LANA MODELO GALLINA</p>
+        <span>S/ 14.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON DANIES EN HILO" data-precio="18"
+           data-img="img/ROPONHILO.jpg"
+           data-desc=""
+           data-carac="Material: Hilo">
+        <img src="img/ROPONHILO.jpg" alt="Correa retráctil">
+        <p>ROPON DANIES EN HILO</p>
+        <span>S/ 18.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR BABERO" data-precio="5"
+           data-img="img/AJUARBABERO.jpg"
+           data-desc=""
+           data-carac="Material: Algodon Yersey">
+        <img src="img/AJUARBABERO.jpg" alt="Correa retráctil">
+        <p>AJUAR BABERO</p>
+        <span>S/ 5.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR PICUETA" data-precio="6"
+           data-img="img/AJUARPICUETA.jpg"
+           data-desc=""
+           data-carac="Material: Algodon Yersey">
+        <img src="img/AJUARPICUETA.jpg" alt="Correa retráctil">
+        <p>AJUAR PICUETA</p>
+        <span>S/ 6.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR LUCY COLOR ENTERO" data-precio="8"
+           data-img="img/AJUARLUCYENTERO.jpg"
+           data-desc=""
+           data-carac="Material: Algodon Yersey">
+        <img src="img/AJUARLUCYENTERO.jpg" alt="Correa retráctil">
+        <p>AJUAR LUCY COLOR ENTERO</p>
+        <span>S/ 8.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR YUPI MODELO CORONA" data-precio="12"
+           data-img="img/AJUARYUPI.jpg"
+           data-desc=""
+           data-carac="Material: Algodon Yersey">
+        <img src="img/AJUARYUPI.jpg" alt="Correa retráctil">
+        <p>AJUAR YUPI MODELO CORONA</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR CRYS PEINE" data-precio="12"
+           data-img="img/AJUARCRYSPEINE.jpg"
+           data-desc=""
+           data-carac="Material: Algodon Yersey ">
+        <img src="img/AJUARCRYSPEINE.jpg" alt="Correa retráctil">
+        <p>AJUAR CRYS PEINE</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      </div>
   </section>
 
-  <!-- CATÁLOGO GATOS -->
+  <!-- ============================================
+       CATÁLOGO GATOS (5 productos) 
+  ============================================ -->
   <section id="gatos" class="catalogo oculto">
-    <h2>Catálogo Gatos 🐱</h2>
+    <h2>Catálogo Pets 🐱</h2>
     <div class="galeria">
 
-      <div class="producto agotado" data-id="3" data-nombre="Rascador premium" data-precio="60">
-        <img src="img/cat2-1.jpg" alt="Rascador premium para gato">
-        <p>Rascador premium</p>
-        <span>S/ 60.00</span>
-        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="ARNES PECHERA POLICE K9 TALLA S" data-precio="23"
+           data-img="img/PECHERAPOLICIA.jpeg"
+           data-desc="Arnés Pechera Police k9, acolchado, cómodo y seguro para tu perro. Excelente calidad. Aro metálico firme y resistente para enganchar cualquier tipo de correa. No compromete el cuello. Reflectante."
+           data-carac="Tallas: S ">
+        <img src="img/PECHERAPOLICIA.jpeg" alt="Rascador premium">
+        <p>ARNES PECHERA POLICE K9 TALLA S</p>
+        <span>S/ 23.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
 
-      <div class="producto" data-id="4" data-nombre="Cama suave" data-precio="45">
-        <img src="img/cat2-2.jpg" alt="Cama suave para gato">
-        <p>Cama suave</p>
-        <span>S/ 45.00</span>
-        <button class="btn-agregar" onclick="agregarAlCarrito(this)">
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="ARNES PECHERA POLICE K9 TALLA M" data-precio="27"
+           data-img="img/PECHERAPOLICIA.jpeg"
+           data-desc="Arnés Pechera Police k9, acolchado, cómodo y seguro para tu perro. Excelente calidad. Aro metálico firme y resistente para enganchar cualquier tipo de correa. No compromete el cuello. Reflectante."
+           data-carac="Tallas: M|Peso adecuado del perro: 12-20 Kg|Pecho- Rango ajustable: 55-70 cm ">
+        <img src="img/PECHERAPOLICIA.jpeg" alt="Rascador premium">
+        <p>ARNES PECHERA POLICE K9 TALLA M</p>
+        <span>S/ 27.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="g3" data-nombre="COLLAR PARA PARA PERRO CON CASCABEL, DISEÑO DE HUESITOS" data-precio="10"
+           data-img="img/COLLAR1.jpeg"
+           data-desc="Collar ajustable de seguridad con cascabel y anillo para mascotas."
+           data-carac="Característica : Campanas| Ancho 2,0 CM|Se puede ajustar la talla 30-50 CM|Colores: Negro, verde y naranja ">
+        <img src="img/COLLAR1.jpeg" alt="Arenero cerrado">
+        <p>COLLAR PARA PARA PERRO CON CASCABEL, DISEÑO DE HUESITOS</p>
+        <span>S/ 10.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="g4" data-nombre="COLLAR DE CUERO LISO" data-precio="15"
+           data-img="img/COLLAR2.jpeg"
+           data-desc=""
+           data-carac="Ancho 1,0 CM|Medida de correa de 35 CM regulable|Colores: Rojo y naranja">
+        <img src="img/COLLAR2.jpeg" alt="Juguete ratón">
+        <p>COLLAR DE CUERO LISO</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto" onclick="abrirModal(this)"
+           data-id="g5" data-nombre="BUZO ADIDOG DE 2 PIEZAS TALLA 2" data-precio="28"
+           data-img="img/IMPERMEABLEADIDOG.jpeg"
+           data-desc="¡Haz que tu engreído luzca a la moda y protegido del frío! Nuestro Buzo Deportivo Adidog es la prenda perfecta para perros y gatos que aman verse bien sin sacrificar la comodidad. Con un diseño inspirado en el streetwear deportivo, es ideal para paseos diarios, días nublados o simplemente para destacar en casa."
+           data-carac="Su diseño tipo jardinera (con aberturas para las patas) permite que tu mascota corra, salte y juegue con total libertad sin restricciones.| Disponible en una amplia gama de colores vibrantes (Rosa, Azul, Rojo, Vino, Gris, Morado y más) para que elijas el que mejor combine con su personalidad.">
+        <img src="img/IMPERMEABLEADIDOG.jpeg" alt="Fuente de agua">
+        <p>BUZO ADIDOG DE 2 PIEZAS TALLA 2</p>
+        <span>S/ 28.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
@@ -154,16 +439,16 @@
     <div class="redes-sociales">
       <h3>Síguenos 🐾</h3>
       <div class="iconos-redes">
-        <a href="https://facebook.com/TU_PAGINA" target="_blank" aria-label="Facebook">
+        <a href="https://www.facebook.com/share/1EDSSUSsYF/" target="_blank" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://instagram.com/TU_USUARIO" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/tienda_engreiditos?exln=eHl5cW1rb3U3a2k4" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://tiktok.com/@TU_USUARIO" target="_blank" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@tienda.engreiditos?_r=1&_t=ZS-9AyqAEnrr4X" target="_blank" aria-label="TikTok">
           <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://wa.me/51999999999" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/message/PVCIZFWIOOUJG1" target="_blank" aria-label="WhatsApp">
           <i class="fab fa-whatsapp"></i>
         </a>
         <a href="mailto:tu-correo@gmail.com" aria-label="Correo">
@@ -173,6 +458,42 @@
     </div>
     <p>© 2025 ENGREIDITOS - Todos los derechos reservados</p>
   </footer>
+
+    <!-- ============================================
+       MODAL DE PRODUCTO (pantalla completa)
+  ============================================ -->
+  <div id="modal-producto" class="modal-producto">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" onclick="cerrarModal()">&times;</button>
+
+      <div class="modal-grid">
+        <!-- Imagen -->
+        <div class="modal-imagen">
+          <img id="modal-img" src="" alt="Producto">
+        </div>
+
+        <!-- Información -->
+        <div class="modal-info">
+          <h2 id="modal-nombre">Nombre del producto</h2>
+          <p class="modal-precio" id="modal-precio">S/ 0.00</p>
+          <p class="modal-desc" id="modal-desc">Descripción del producto...</p>
+
+          <h3>Características</h3>
+          <ul id="modal-carac" class="modal-carac"></ul>
+
+          <button class="btn-agregar modal-btn-agregar" id="modal-btn-agregar">
+            <i class="fas fa-cart-plus"></i> Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
 
   <script src="script.js"></script>
 </body>
