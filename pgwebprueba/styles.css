@@ -1280,3 +1280,49 @@ footer {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 */
+
+/* ============================================
+   📱 CARRITO EN MÓVIL - EN FILA CON EL TÍTULO
+   (Opción 3 - recomendada)
+============================================ */
+@media (max-width: 600px) {
+  header {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: left;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  header p {
+    display: none;   /* 👈 oculta el subtítulo en móvil para ahorrar espacio */
+  }
+
+  .btn-carrito {
+    position: static;   /* 👈 deja de ser absoluto, se coloca en la fila */
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  #contador-carrito {
+    top: -4px;
+    right: -4px;
+  }
+
+  /* Ocultar la guirnalda en móvil para que no estorbe */
+  .guirnalda {
+    display: none;
+  }
+}
