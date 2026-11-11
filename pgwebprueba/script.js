@@ -10,6 +10,11 @@ function mostrarCategoria(categoria, boton) {
   // Mostrar el seleccionado
   document.getElementById(categoria).classList.remove('oculto');
 
+  // Mostrar todos los productos (resetear filtros)
+  document.getElementById(categoria).querySelectorAll('.producto').forEach(p => {
+    p.style.display = 'flex';
+  });
+
   // Cerrar el menú después de elegir
   const menu = document.getElementById('dropdown-menu');
   if (menu) menu.classList.remove('abierto');
@@ -155,7 +160,7 @@ function finalizarCompra() {
 
   mensaje += `\n*Total: S/ ${total.toFixed(2)}*`;
 
-  const telefono = '51937317265'; // 👈 CAMBIA por tu número real
+  const telefono = '51937317265'; // 👈 tu número
   window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
@@ -165,24 +170,46 @@ actualizarCarrito();
 // ============================================
 // MODAL DE PRODUCTO
 // ============================================
-let productoActual = null;
-
 function abrirModal(elemento) {
   const modal = document.getElementById('modal-producto');
-  productoActual = elemento;
 
-  // Cargar datos
-  document.getElementById('modal-img').src = elemento.dataset.img;
-  document.getElementById('modal-img').alt = elemento.dataset.nombre;
+  // Determinar imágenes (varias o una sola)
+  const imgsAttr = elemento.dataset.imgs || elemento.dataset.img;
+  const imagenes = imgsAttr.split('|').map(s => s.trim()).filter(Boolean);
+  const imagenPrincipal = imagenes[0];
+
+  // Imagen grande
+  const imgGrande = document.getElementById('modal-img');
+  imgGrande.src = imagenPrincipal;
+  imgGrande.alt = elemento.dataset.nombre;
+
+  // Miniaturas
+  const contMiniaturas = document.getElementById('modal-miniaturas');
+  contMiniaturas.innerHTML = '';
+  if (imagenes.length > 1) {
+    imagenes.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.alt = `Vista ${i + 1}`;
+      thumb.className = i === 0 ? 'miniatura activa' : 'miniatura';
+      thumb.onclick = () => {
+        imgGrande.src = src;
+        contMiniaturas.querySelectorAll('.miniatura').forEach(t => t.classList.remove('activa'));
+        thumb.classList.add('activa');
+      };
+      contMiniaturas.appendChild(thumb);
+    });
+  }
+
+  // Datos del producto
   document.getElementById('modal-nombre').textContent = elemento.dataset.nombre;
   document.getElementById('modal-precio').textContent = `S/ ${parseFloat(elemento.dataset.precio).toFixed(2)}`;
   document.getElementById('modal-desc').textContent = elemento.dataset.desc;
 
-  // Cargar características (separadas por |)
+  // Características
   const lista = document.getElementById('modal-carac');
   lista.innerHTML = '';
-  const caracteristicas = elemento.dataset.carac.split('|');
-  caracteristicas.forEach(c => {
+  elemento.dataset.carac.split('|').forEach(c => {
     if (c.trim()) {
       const li = document.createElement('li');
       li.innerHTML = `<i class="fas fa-check"></i> ${c.trim()}`;
@@ -198,7 +225,7 @@ function abrirModal(elemento) {
   };
 
   modal.classList.add('activo');
-  document.body.style.overflow = 'hidden'; // bloquea scroll de fondo
+  document.body.style.overflow = 'hidden';
 }
 
 function cerrarModal() {
@@ -225,11 +252,90 @@ function toggleDropdown(event) {
   menu.classList.toggle('abierto');
 }
 
-// Cerrar el menú al hacer clic fuera
+// Cerrar menú al hacer clic fuera
 document.addEventListener('click', (e) => {
   const menu = document.getElementById('dropdown-menu');
   const dropdown = document.querySelector('.dropdown');
   if (menu && dropdown && !dropdown.contains(e.target)) {
     menu.classList.remove('abierto');
+    document.querySelectorAll('.submenu').forEach(s => s.classList.remove('abierto'));
   }
 });
+
+// ============================================
+// SUBMENÚS (desplegar subcategorías)
+// ============================================
+function toggleSubmenu(event, submenuId) {
+  event.stopPropagation();
+  const submenu = document.getElementById(submenuId);
+
+  // Cerrar otros submenús abiertos
+  document.querySelectorAll('.submenu').forEach(s => {
+    if (s.id !== submenuId) s.classList.remove('abierto');
+  });
+
+  submenu.classList.toggle('abierto');
+}
+
+// ============================================
+// IR A UNA SUBCATEGORÍA (con scroll automático)
+// ============================================
+function irASubcategoria(categoria, subcategoria, boton) {
+  // Mostrar catálogo
+  document.querySelectorAll('.catalogo').forEach(sec => {
+    sec.classList.add('oculto');
+  });
+  document.getElementById(categoria).classList.remove('oculto');
+
+  // Filtrar productos
+  const seccion = document.getElementById(categoria);
+  const productos = seccion.querySelectorAll('.producto');
+  productos.forEach(prod => {
+    if (subcategoria === 'todos' || prod.dataset.subcat === subcategoria) {
+      prod.style.display = 'flex';
+    } else {
+      prod.style.display = 'none';
+    }
+  });
+
+  // ⚠️ PROBLEMA 2 SIN CORREGIR: el título mantiene el sufijo de la categoría
+  const titulo = seccion.querySelector('h2');
+  const nombres = { perros: ' kids👶', gatos: 'Pets 🐶🐱' };
+  const nombreSub = boton.textContent.trim();
+  if (nombreSub === 'Todos') {
+    titulo.textContent = `Catálogo ${nombres[categoria]}`;
+  } else {
+    titulo.textContent = `${nombreSub} - ${nombres[categoria]}`;
+  }
+
+  // Cerrar menú
+  document.getElementById('dropdown-menu').classList.remove('abierto');
+  document.querySelectorAll('.submenu').forEach(s => s.classList.remove('abierto'));
+
+  // Scroll suave
+  seccion.scrollIntoView({ behavior: 'smooth' });
+}
+
+
+// ============================================
+// ❄️ COPOS DE NIEVE NAVIDEÑOS
+// ============================================
+function crearCopo() {
+  const contenedor = document.getElementById('nieve');
+  if (!contenedor) return;
+
+  const copo = document.createElement('div');
+  copo.className = 'copo';
+  copo.textContent = ['❄️', '❅', '❆', '✻'][Math.floor(Math.random() * 4)];
+  copo.style.left = Math.random() * 100 + 'vw';
+  copo.style.fontSize = (Math.random() * 15 + 10) + 'px';
+  copo.style.animationDuration = (Math.random() * 5 + 5) + 's';
+  copo.style.opacity = Math.random() * 0.6 + 0.4;
+
+  contenedor.appendChild(copo);
+
+  setTimeout(() => copo.remove(), 12000);
+}
+
+// Crear copos continuamente
+setInterval(crearCopo, 400);
