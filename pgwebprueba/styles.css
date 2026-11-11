@@ -660,7 +660,7 @@ footer {
   align-items: start;
 }
 
-.modal-imagen img {
+.modal-imagen > img {
   width: 100%;
   height: 380px;
   object-fit: cover;
@@ -729,7 +729,7 @@ footer {
     gap: 20px;
   }
 
-  .modal-imagen img {
+    .modal-imagen > img {      /* 👈 antes era .modal-imagen img */
     height: 260px;
   }
 
@@ -786,7 +786,7 @@ footer {
 ============================================ */
 .navbar-categorias {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background: white;
   padding: 15px 20px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
@@ -833,28 +833,7 @@ footer {
   transform: rotate(180deg);
 }
 
-/* Menú desplegable */
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: 10px;
-  min-width: 200px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 100;
-}
 
-.dropdown-menu.abierto {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
-}
 
 /* Opciones dentro del menú */
 .dropdown-item {
@@ -905,3 +884,399 @@ footer {
     min-width: 180px;
   }
 }
+
+/* ============================================
+   MENÚ CON SUBCATEGORÍAS (LISTADO VERTICAL)
+============================================ */
+.navbar-categorias {
+  display: flex;
+  justify-content: flex-start;;
+  background: white;
+  padding: 15px 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.nav-cat {
+  background: linear-gradient(135deg, #ff8fa3, #d6336c);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
+}
+
+.nav-cat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 51, 108, 0.45);
+}
+
+.nav-cat .flecha {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+/* Menú desplegable principal */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;                                   /* 👈 alineado a la izquierda */
+  transform: translateY(-10px);
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  min-width: 240px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.dropdown-menu.abierto {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+
+/* Cada categoría del menú */
+.cat-item {
+  position: relative;
+}
+
+.cat-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d6336c;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.cat-titulo:hover {
+  background: #fff0f4;
+}
+
+.cat-titulo i:first-child {
+  color: #ff8fa3;
+  font-size: 1.1rem;
+  width: 20px;
+}
+
+.flecha-sub {
+  font-size: 0.7rem;
+  color: #ff8fa3;
+  transition: transform 0.3s ease;
+}
+
+/* Submenú desplegable */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: #fff9fb;
+  border-radius: 10px;
+  margin-top: 4px;
+  padding: 0 6px;
+}
+
+.submenu.abierto {
+  max-height: 240px;        /* 👈 altura máxima visible */
+  overflow-y: auto;         /* 👈 scroll vertical */
+  padding: 8px;
+}
+
+/* Scroll personalizado (solo navegadores WebKit: Chrome, Edge, Safari) */
+.submenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.submenu::-webkit-scrollbar-track {
+  background: #fff0f4;
+  border-radius: 3px;
+}
+
+.submenu::-webkit-scrollbar-thumb {
+  background: #ff8fa3;
+  border-radius: 3px;
+}
+
+.submenu::-webkit-scrollbar-thumb:hover {
+  background: #d6336c;
+}
+
+/* Firefox (usa otra propiedad) */
+.submenu {
+  scrollbar-width: thin;
+  scrollbar-color: #ff8fa3 #fff0f4;
+}
+
+
+/* Cada subcategoría */
+.submenu-item {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.submenu-item:hover {
+  background: #ffe4ec;
+  color: #d6336c;
+  padding-left: 22px;
+}
+
+/* Rotación de flechas al abrir */
+.cat-titulo.activo .flecha-sub {
+  transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar-categorias {
+    padding: 12px 10px;
+  }
+
+  .nav-cat {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-menu {
+    min-width: 220px;
+  }
+}
+
+
+
+/* ============================================
+   MINIATURAS EN EL MODAL
+============================================ */
+.modal-miniaturas {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.miniatura {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.miniatura:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.miniatura.activa {
+  border-color: #d6336c;
+  opacity: 1;
+  box-shadow: 0 3px 8px rgba(214, 51, 108, 0.3);
+}
+
+/* ============================================
+   🎄 DECORACIÓN NAVIDEÑA
+============================================ */
+
+/* ---------- Guirnalda de luces ---------- */
+.guirnalda {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+.guirnalda::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.luz {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background: #ffd43b;
+  box-shadow: 0 0 10px #ffd43b, 0 0 20px #ffd43b;
+  animation: parpadear 1.5s infinite alternate;
+  position: relative;
+  z-index: 1;
+}
+
+.luz:nth-child(2n) { background: #ff6b6b; box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b; animation-delay: 0.2s; }
+.luz:nth-child(3n) { background: #51cf66; box-shadow: 0 0 10px #51cf66, 0 0 20px #51cf66; animation-delay: 0.4s; }
+.luz:nth-child(4n) { background: #4dabf7; box-shadow: 0 0 10px #4dabf7, 0 0 20px #4dabf7; animation-delay: 0.6s; }
+
+@keyframes parpadear {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ---------- Banner navideño ---------- */
+.banner-navidad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(90deg, #2b9348, #55a630, #2b9348);
+  background-size: 200% auto;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: brillo 4s linear infinite;
+}
+
+.banner-navidad p {
+  margin: 0;
+}
+
+.banner-navidad span {
+  font-size: 1.4rem;
+  animation: balanceo 2s ease-in-out infinite;
+}
+
+.banner-navidad span:last-child {
+  animation-delay: 0.5s;
+}
+
+@keyframes brillo {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes balanceo {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* ---------- Copos de nieve ---------- */
+.nieve {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.copo {
+  position: absolute;
+  top: -30px;
+  color: white;
+  user-select: none;
+  animation: caer linear forwards;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}
+
+/* ---------- Detalles en productos ---------- */
+
+
+
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .banner-navidad {
+    font-size: 0.8rem;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .banner-navidad span {
+    font-size: 1.1rem;
+  }
+
+  .guirnalda {
+    gap: 10px;
+  }
+
+  .luz {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+/* ============================================
+   🔕 CÓMO DESACTIVAR LA DECORACIÓN
+   (por si quieres quitarla después de Navidad)
+   
+   Solo agrega la clase "sin-navidad" a la etiqueta
+   <body> en el HTML:
+   
+   <body class="sin-navidad">
+   
+   Y descomenta las reglas de abajo:
+============================================ */
+/*
+.sin-navidad .guirnalda,
+.sin-navidad .banner-navidad,
+.sin-navidad .nieve {
+  display: none !important;
+}
+
+.sin-navidad .producto:hover {
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+*/
