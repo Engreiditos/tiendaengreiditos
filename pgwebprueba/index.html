@@ -189,15 +189,17 @@
     </div>
   </section>
 
-     <!-- ============================================
-       CATÁLOGO kids 
+<!-- ============================================
+       CATÁLOGO kids (5 productos)
   ============================================ -->
   <section id="perros" class="catalogo oculto">
     <h2>Catálogo kids👶</h2>
     <div class="galeria">
 
   
-
+                 <!-- ============================================
+                                   PAÑALERAS
+                      ============================================ -->
        <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
            data-id="g1" data-nombre="PAÑALERA LAZO" data-precio="40"
            data-img="img/PAÑALERA1.JPG"
@@ -211,6 +213,23 @@
         </button>
       </div>
 
+        <div class="producto"      data-subcat="PAÑALERA"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="GUCANRO ERGONOMICO" data-precio="60"
+           data-img="img/CANGURO.jpeg"
+           data-desc=""
+           data-carac="Desde recién nacido hasta 22 kg|Favorece la postura correcta del bebé|Tela suave y transpirable|Incluye un asientito desmontable según preferencia|Múltiples posiciones: frontal, lateral y espalda|">
+        <img src="img/CANGURO.jpeg" alt="Correa retráctil">
+        <p>GUCANRO ERGONOMICO</p>
+        <span>S/ 60.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+
+                  <!-- ============================================
+                                   MEDIAS
+                      ============================================ -->
       <div class="producto"  data-subcat="MEDIAS" onclick="abrirModal(this)"
            data-id="p1" data-nombre="PAR DE MEDIAS SONAJERAS FELPA ESTIMULADORAS" data-precio="6"
            data-img="img/MEDIASSONAJERA.jpeg"
@@ -236,6 +255,11 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
+
+      
+                  <!-- ============================================
+                                   ASEO
+                      ============================================ -->
 
       <div class="producto"   data-subcat="ASEO"   onclick="abrirModal(this)"
            data-id="p3" data-nombre="LIMADOR DE UÑAS PARA BEBES PRESENTACION EN CAJA AZUL Y ROSA" data-precio="16"
@@ -263,6 +287,37 @@
         </button>
       </div>
 
+       <div class="producto"      data-subcat="ASEO"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CEPILLO DEDAL SANTOLEE" data-precio="6"
+           data-img="img/DEDAL.JPG"
+           data-desc="Ideal para la limpieza delicada de encías, lengua y primeros dientes del bebé desde los primeros meses.Calma la picazón, inflamación e incomodidad durante la salida de los primeros brotes dentales. Permite mantener el cepillo protegido, limpio y listo para usar en viajes o salidas."
+           data-carac="🖌️ Cerdas ultra suaves de silicona: Diseñadas para masajear las encías sensibles sin causar irritación ni heridas.|🪥 1 Cepillo de silicona tipo dedal: Funda flexible de silicona de grado alimenticio que se adapta al dedo del adulto.|💼 1 Estuche/Porta cepillo viajero: Caja protectora rígida y transparente con base rosada para resguardar el dedal.|🛡️ 100% Seguro y atóxico (BPA Free): Fabricado con silicona de grado alimenticio, totalmente libre de BPA, PVC y ftalatos.">
+        <img src="img/DEDAL.JPG" alt="Correa retráctil">   
+        <p>CEPILLO DEDAL SANTOLEE</p>
+        <span>S/ 6.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+       <div class="producto"      data-subcat="ASEO"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ASPIRADOR NASAL MANUAL PARA BEBES" data-precio="15"
+           data-img="img/ASPIRADORNASAL.jpeg"
+           data-desc="El aspirador nasal manual para bebé en un delicado color rosa es un accesorio esencial para mantener a tu pequeño respirando con total libertad."
+           data-carac="🛡️ 100% Seguro y atóxico (BPA Free): Fabricado con silicona de grado alimenticio, totalmente libre de BPA, PVC y ftalatos.|Diseño ergonómico y suave que asegura un uso cómodo y seguro, pensando en la delicada nariz de tu pequeño.">
+        <img src="img/ASPIRADORNASAL.jpeg" alt="Correa retráctil">   
+        <p>ASPIRADOR NASAL MANUAL PARA BEBES</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+      
+                  <!-- ============================================
+                                   EXTRACTOR
+                      ============================================ -->
+
       <div class="producto"   data-subcat="EXTRACTOR"   onclick="abrirModal(this)"
            data-id="p5" data-nombre="EXTRACTOR MANUAL DE LECHE SANTOLEE" data-precio="30"
            data-img="img/EXTRACTOR.JPG"
@@ -276,6 +331,11 @@
         </button>
       </div>
 
+
+      
+                  <!-- ============================================
+                                   TOALLAS
+                      ============================================ -->
       <div class="producto"    data-subcat="TOALLAS"   onclick="abrirModal(this)"
            data-id="p5" data-nombre="SET DE TOALLA" data-precio="35"
            data-img="img/SETTOALLA.JPG"
@@ -302,8 +362,11 @@
         </button>
       </div>
 
+      
+                  <!-- ============================================
+                                   ROPON
+                      ============================================ -->
   
-
      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
            data-id="p6" data-nombre="ROPON POLLITO DE LANA" data-precio="9"
            data-img="img/ROPONPOLLITO.JPG"
@@ -355,6 +418,11 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
+
+      
+                  <!-- ============================================
+                                   AJUAR
+                      ============================================ -->
 
       <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
            data-id="p6" data-nombre="AJUAR BABERO" data-precio="5"
@@ -421,6 +489,24 @@
         </button>
       </div>
 
+        <div class="producto"      data-subcat="AJUAR"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CAJITAS ANIMADAS AJUAR 4 PIEZAS" data-precio="15"
+           data-img="img/CAJITASANIMADAS.jpeg"
+           data-desc=" 100% algodón Pima, suave y delicado con la piel del bebé, en cajita lista para obsequiar"
+           data-carac="Incluye:| ✔️Body Manga larga |✔️ Pantaloncito|✔️ Babero|✔️ Gorrito ">
+        <img src="img/CAJITASANIMADAS.jpeg" alt="Correa retráctil">
+        <p>CAJITAS ANIMADAS AJUAR 4 PIEZAS</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+
+      
+                  <!-- ============================================
+                                   BABEROS
+                      ============================================ -->
  <div class="producto"      data-subcat="BABEROS"   onclick="abrirModal(this)"
            data-id="p6" data-nombre="BABERO PIMA ACOLCHADO CON BROCHE" data-precio="4"
            data-img="img/BABERO1.JPG"
@@ -485,6 +571,11 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
+
+      
+                  <!-- ============================================
+                                   COLCHAS
+                      ============================================ -->
   
       <div class="producto"      data-subcat="COLCHAS"   onclick="abrirModal(this)"
            data-id="p6" data-nombre="COLCHA PLUSH BURBUJA CON PIMA" data-precio="30"
@@ -498,6 +589,11 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div> 
+
+      
+                  <!-- ============================================
+                                   MORDEDORES
+                      ============================================ -->
 
       <div class="producto"      data-subcat="MORDEDOR"   onclick="abrirModal(this)"
            data-id="p6" data-nombre="CHUPON ALIMENTADOR PINGUINO CON REPUESTO SANTOLEE" data-precio="10"
@@ -525,11 +621,59 @@
         </button>
       </div>  
 
+       <div class="producto"      data-subcat="MORDEDOR"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="MORDEDOR DE MODELO CONTROL OSITO" data-precio="15"
+           data-img="img/MORDEDOR1.JPG"
+           data-desc=""
+           data-carac="🔲 Texturas relieve variadas: Puntos, líneas y rugosidades en la superficie para masajear las encías superiores e inferiores de forma suave.|🛡️ 100% Seguro y No Tóxico (Libre de BPA): Fabricado con materiales alimenticios de alta calidad totalmente seguros si el bebé lo muerde constantemente.|🎒 Práctico y portátil: Tamaño compacto ideal para enfriar rápido y llevar en la pañalera durante paseos o viajes.">
+        <img src="img/MORDEDOR1.JPG" alt="Correa retráctil">
+        <p>COLCHA PLUSH BURBUJA CON PIMA</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>  
+
+      <div class="producto"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MORDEDOR BANANA (YELLOW)" data-precio="10"
+           data-img="img/MORDEDOR2.JPG"
+           data-imgs="img/MORDEDOR2.JPG|img/MORDEDOR2-2.JPG"
+           data-desc="Mordedor de silicona modelo banana, ideal para calmar la dentición de las salidas de los dientes del bebé."
+           data-carac="Silicona grado alimenticio|100 % libre de BPA, PVC y ftalatos">
+        <img src="img/MORDEDOR2.JPG" alt="Rascador premium">
+        <p>MORDEDOR BANANA (YELLOW)</p>
+        <span>S/ 10.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"      data-subcat="MORDEDOR"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CUCHARA BIBERON" data-precio="15"
+           data-img="img/BIBERONCUCHARA.JPG"
+           data-desc="Dispensa fácilmente la comida para bebés un bocado a la vez al apretar suavemente. Ideal para leche, fórmula, papillas, etc."
+           data-carac="🛡️ 100% Seguro y No Tóxico (Libre de BPA): Fabricado con materiales alimenticios de alta calidad totalmente seguros si el bebé lo muerde constantemente.|🎒 Práctico y portátil: Tamaño compacto ideal para llevar en la pañalera durante paseos o viajes.">
+        <img src="img/BIBERONCUCHARA.JPG" alt="Correa retráctil">
+        <p>CUCHARA BIBERON</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>  
+
+
+
+
+      
+                  <!-- ============================================
+                                   JUGUETES
+                      ============================================ -->
+
       <div class="producto"      data-subcat="JUGUETES"   onclick="abrirModal(this)"
            data-id="p6" data-nombre="ALFOMBRA SENSORIAL PARA BEBES" data-precio="12"
            data-img="img/ALFOMBRA.JPG"
            data-desc="¡Un espacio lleno de colores y sensaciones para tocar, explorar, moverse y descubrir mientras tu bebé juega! 👶🌈🖐️✨"
-           data-carac="✋ Diseño sensorial: incorpora diferentes elementos visuales y/o táctiles para que el bebé explore durante el juego, según modelo.|🖐️ Exploración mediante el tacto: permite descubrir diferentes sensaciones mientras toca y manipula la superficie.|🏠 Práctica para jugar en casa: permite crear un espacio definido para actividades de estimulación|Dimensiones:69x51x8">
+           data-carac="✋ Diseño sensorial: incorpora diferentes elementos visuales y/o táctiles para que el bebé explore durante el juego, según modelo.|🖐️ Exploración mediante el tacto: permite descubrir diferentes sensaciones mientras toca y manipula la superficie.|🏠 Práctica para jugar en casa: permite crear un espacio definido para actividades de estimulación.">
         <img src="img/ALFOMBRA.JPG" alt="Correa retráctil">
         <p>ALFOMBRA SENSORIAL PARA BEBES</p>
         <span>S/ 12.00</span>
@@ -537,60 +681,10 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div> 
+ 
 
-      <div class="producto agotado"      data-subcat="MORDEDOR"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="MORDEDOR DE MODELO CONTROL OSITO" data-precio="12"
-           data-img="img/MORDEDOR1.JPG"
-           data-desc=""
-           data-carac="🔲 Texturas relieve variadas: Puntos, líneas y rugosidades en la superficie para masajear las encías superiores e inferiores de forma suave.|🛡️ 100% Seguro y No Tóxico (Libre de BPA): Fabricado con materiales alimenticios de alta calidad totalmente seguros si el bebé lo muerde constantemente.|🎒 Práctico y portátil: Tamaño compacto ideal para enfriar rápido y llevar en la pañalera durante paseos o viajes.">
-        <img src="img/MORDEDOR1.JPG" alt="Correa retráctil">
-        <p>MORDEDOR DE MODELO CONTROL OSITO</p>
-        <span>S/ 12.00</span>
-        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-          <i class="fas fa-cart-plus"></i> Agregar
-        </button>
-      </div>  
-
-      <div class="producto"      data-subcat="ASEO"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="CEPILLO DEDAL SANTOLEE" data-precio="6"
-           data-img="img/DEDAL.JPG"
-           data-desc="Ideal para la limpieza delicada de encías, lengua y primeros dientes del bebé desde los primeros meses.Calma la picazón, inflamación e incomodidad durante la salida de los primeros brotes dentales. Permite mantener el cepillo protegido, limpio y listo para usar en viajes o salidas."
-           data-carac="🖌️ Cerdas ultra suaves de silicona: Diseñadas para masajear las encías sensibles sin causar irritación ni heridas.|🪥 1 Cepillo de silicona tipo dedal: Funda flexible de silicona de grado alimenticio que se adapta al dedo del adulto.|💼 1 Estuche/Porta cepillo viajero: Caja protectora rígida y transparente con base rosada para resguardar el dedal.|🛡️ 100% Seguro y atóxico (BPA Free): Fabricado con silicona de grado alimenticio, totalmente libre de BPA, PVC y ftalatos.">
-        <img src="img/DEDAL.JPG" alt="Correa retráctil">   
-        <p>CEPILLO DEDAL SANTOLEE</p>
-        <span>S/ 6.00</span>
-        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-          <i class="fas fa-cart-plus"></i> Agregar
-        </button>
-      </div> 
-
-      <div class="producto"      data-subcat="PAÑALERA"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="CANGURO ERGONOMICO" data-precio="60"
-           data-img="img/CANGURO.jpeg"
-           data-desc=""
-           data-carac="Desde recién nacido hasta 22 kg|Favorece la postura correcta del bebé|Tela suave y transpirable|Incluye un asientito desmontable según preferencia|Múltiples posiciones: frontal, lateral y espalda|">
-        <img src="img/CANGURO.jpeg" alt="Correa retráctil">
-        <p>CANGURO ERGONOMICO</p>
-        <span>S/ 60.00</span>
-        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-          <i class="fas fa-cart-plus"></i> Agregar
-        </button>
-      </div> 
-
-       <div class="producto"      data-subcat="AJUAR"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="CAJITAS ANIMADAS AJUAR 4 PIEZAS" data-precio="15"
-           data-img="img/CAJITASANIMADAS.jpeg"
-           data-desc=" 100% algodón Pima, suave y delicado con la piel del bebé, en cajita lista para obsequiar"
-           data-carac="Incluye:| ✔️Body Manga larga |✔️ Pantaloncito|✔️ Babero|✔️ Gorrito ">
-        <img src="img/CAJITASANIMADAS.jpeg" alt="Correa retráctil">
-        <p>CAJITAS ANIMADAS AJUAR 4 PIEZAS</p>
-        <span>S/ 15.00</span>
-        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-          <i class="fas fa-cart-plus"></i> Agregar
-        </button>
-      </div> 
 <!-- ============================================
-       CATÁLOGO  DE IMAGEN MULTIPLES
+       ROPA IMPORTADA
   ============================================ -->
 
        <div class="producto"  data-subcat="ROPA IMPORTADA" onclick="abrirModal(this)"
@@ -607,11 +701,10 @@
         </button>
       </div>
 
-
-
       </div>  
     </section>
 
+  
   <!-- ============================================
        CATÁLOGO GATOS (5 productos) 
   ============================================ -->
