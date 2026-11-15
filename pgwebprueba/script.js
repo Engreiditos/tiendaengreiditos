@@ -339,3 +339,25 @@ function crearCopo() {
 
 // Crear copos continuamente
 setInterval(crearCopo, 400);
+
+
+// ============================================
+// CARRUSEL DE PROMOCIONES
+// ============================================
+function moverCarrusel(direccion) {
+  const carrusel = document.getElementById('carrusel-promos');
+  if (!carrusel) return;
+
+  // Calculamos el ancho de una tarjeta + el espacio (gap)
+  const primeraTarjeta = carrusel.querySelector('.promo-card');
+  if (!primeraTarjeta) return;
+  
+  // 30 es el gap que tenemos en el CSS
+  const anchoDesplazamiento = primeraTarjeta.offsetWidth + 30; 
+
+  // Mover el scroll suavemente
+  carrusel.scrollBy({
+    left: direccion * anchoDesplazamiento,
+    behavior: 'smooth'
+  });
+}
