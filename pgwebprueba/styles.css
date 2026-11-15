@@ -78,7 +78,7 @@ header h1 {
 }
 
 /* ============================================
-   CATEGORÍAS
+   CATEGORÍAS (Botones antiguos)
 ============================================ */
 .categorias {
   text-align: center;
@@ -114,7 +114,7 @@ header h1 {
 }
 
 /* ============================================
-   CATÁLOGO
+   CATÁLOGO GENERAL
 ============================================ */
 .catalogo {
   padding: 40px 20px;
@@ -130,11 +130,12 @@ header h1 {
   display: none;
 }
 
+/* 👇 MODIFICADO: 4 PRODUCTOS POR FILA EN PANTALLAS GRANDES 👇 */
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 25px;
-  max-width: 900px;
+  max-width: 1300px; /* Más ancho para abarcar 4 */
   margin: 0 auto;
 }
 
@@ -145,10 +146,9 @@ header h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   position: relative;
-
-  display: flex;              /* 👈 activa flexbox */
-  flex-direction: column;     /* 👈 organiza en columna */
-  height: 100%;               /* 👈 ocupa toda la altura de la fila */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .producto:hover {
@@ -166,7 +166,7 @@ header h1 {
 .producto p {
   margin: 10px 0 5px;
   font-weight: 600;
-  min-height: 2.6em;          /* 👈 reserva espacio para 2 líneas */
+  min-height: 2.6em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +176,7 @@ header h1 {
 .producto span {
   color: #d6336c;
   font-weight: bold;
-  margin-top: auto;           /* 👈 empuja el precio hacia abajo */
+  margin-top: auto;
   margin-bottom: 10px;
   display: block;
 }
@@ -447,36 +447,14 @@ footer {
   color: white;
 }
 
-.iconos-redes a:nth-child(1):hover { background: #1877f2; } /* Facebook */
-.iconos-redes a:nth-child(2):hover { background: #e4405f; } /* Instagram */
-.iconos-redes a:nth-child(3):hover { background: #000000; } /* TikTok */
-.iconos-redes a:nth-child(4):hover { background: #25d366; } /* WhatsApp */
-.iconos-redes a:nth-child(5):hover { background: #d44638; } /* Correo */
+.iconos-redes a:nth-child(1):hover { background: #1877f2; }
+.iconos-redes a:nth-child(2):hover { background: #e4405f; }
+.iconos-redes a:nth-child(3):hover { background: #000000; }
+.iconos-redes a:nth-child(4):hover { background: #25d366; }
+.iconos-redes a:nth-child(5):hover { background: #d44638; }
 
 /* ============================================
-   RESPONSIVE
-============================================ */
-@media (max-width: 480px) {
-  /* Arreglo del carrito oculto en móvil */
-  .panel-carrito {
-    width: 100%;
-    right: -100%; /* 👈 ESTO ES LO QUE FALTA: lo esconde al 100% en vez de -400px */
-  }
-
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  .btn-carrito {
-    width: 42px;
-    height: 42px;
-    top: 15px;
-    right: 15px;
-  }
-}
-
-/* ============================================
-   SECCIÓN DE PROMOCIONES (CON FOTOS)
+   SECCIÓN DE PROMOCIONES Y CARRUSEL
 ============================================ */
 .promociones {
   padding: 50px 20px;
@@ -496,15 +474,34 @@ footer {
   font-size: 1rem;
 }
 
-.galeria-promos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
+/* 👇 MODIFICADO: ANCHO DEL CARRUSEL PARA 4 TARJETAS 👇 */
+.carrusel-wrapper {
+  position: relative;
+  max-width: 1300px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
+.galeria-promos {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 30px;
+  padding: 10px 5px 20px 5px;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.galeria-promos::-webkit-scrollbar {
+  display: none;
+}
+
+/* 👇 MODIFICADO: 4 TARJETAS EN PROMOCIONES 👇 */
 .promo-card {
+  flex: 0 0 calc(25% - 22.5px); /* 25% para 4 tarjetas, restando el gap */
+  scroll-snap-align: start;
   background: white;
   border-radius: 15px;
   overflow: hidden;
@@ -512,13 +509,7 @@ footer {
   transition: 0.3s;
   display: flex;
   flex-direction: column;
-  height: 100%;
   cursor: pointer;
-}
-
-.promo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .promo-card:hover {
@@ -544,7 +535,6 @@ footer {
   transform: scale(1.08);
 }
 
-/* Etiqueta de descuento */
 .etiqueta-descuento {
   position: absolute;
   top: 12px;
@@ -557,6 +547,18 @@ footer {
   border-radius: 20px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.etiqueta-descuento.nuevo {
+  background: linear-gradient(135deg, #d6336c, #d6336c);
+  color: #f5f2f2;
+  animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .promo-info {
@@ -564,14 +566,14 @@ footer {
   text-align: left;
   display: flex;
   flex-direction: column;
-  flex: 1;                    /* 👈 ocupa todo el espacio disponible */
+  flex: 1;
 }
 
 .promo-info h3 {
   margin-bottom: 6px;
   color: #d6336c;
   font-size: 1.1rem;
-  min-height: 2.6em;          /* 👈 reserva espacio para 2 líneas */
+  min-height: 2.6em;
   display: flex;
   align-items: center;
 }
@@ -582,16 +584,54 @@ footer {
   line-height: 1.4;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .promociones h2 {
-    font-size: 1.5rem;
-  }
-
-  .promo-imagen img {
-    height: 180px;
-  }
+.promo-precio {
+  color: #e63946;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 8px 0;
+  margin-top: auto;
 }
+
+.promo-precio small {
+  color: #999;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-left: 6px;
+}
+
+.promo-info .btn-agregar {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+/* Botones del Carrusel */
+.carrusel-btn {
+  background: #d6336c;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrusel-btn:hover {
+  background: #b02a5b;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carrusel-btn.prev { left: -20px; }
+.carrusel-btn.next { right: -20px; }
 
 /* ============================================
    MODAL DE PRODUCTO (PANTALLA COMPLETA)
@@ -724,175 +764,12 @@ footer {
   font-size: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .modal-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-    .modal-imagen > img {      /* 👈 antes era .modal-imagen img */
-    height: 260px;
-  }
-
-  .modal-contenido {
-    padding: 20px;
-    max-height: 95vh;
-  }
-
-  .modal-info h2 {
-    font-size: 1.4rem;
-  }
-
-  .modal-precio {
-    font-size: 1.3rem;
-  }
-}
-
-/* Precio de promoción */
-.promo-precio {
-  color: #e63946;
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin: 8px 0;
-  margin-top: auto;           /* 👈 empuja el precio hacia abajo */
-}
-
-.promo-precio small {
-  color: #999;
-  font-weight: 500;
-  font-size: 0.85rem;
-  margin-left: 6px;
-}
-
-/* Etiqueta NUEVO con animación */
-.etiqueta-descuento.nuevo {
-  background: linear-gradient(135deg, #d6336c, #d6336c);
-  color: #f5f2f2;
-  animation: pulso 2s infinite;
-}
-
-@keyframes pulso {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* Ajuste del botón agregar dentro de promo */
-.promo-info .btn-agregar {
-  margin-top: 15px;           /* 👈 separación del botón */
-  margin-bottom: 0;
-}
-
 /* ============================================
    FRANJA DE CATEGORÍAS CON DROPDOWN
 ============================================ */
 .navbar-categorias {
   display: flex;
   justify-content: flex-start;
-  background: white;
-  padding: 15px 20px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  position: sticky;          /* se queda pegada al hacer scroll */
-  top: 0;
-  z-index: 500;
-}
-
-/* Contenedor del dropdown */
-.dropdown {
-  position: relative;
-}
-
-/* Botón principal "Categorías" */
-.nav-cat {
-  background: linear-gradient(135deg, #ff8fa3, #d6336c);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
-}
-
-.nav-cat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(214, 51, 108, 0.45);
-}
-
-.nav-cat .flecha {
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-}
-
-/* Cuando el menú está abierto, la flecha gira */
-.dropdown-menu.abierto ~ .nav-cat .flecha,
-.nav-cat:has(+ .dropdown-menu.abierto) .flecha {
-  transform: rotate(180deg);
-}
-
-
-
-/* Opciones dentro del menú */
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  background: transparent;
-  border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #d6336c;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.2s ease;
-  text-align: left;
-}
-
-.dropdown-item i {
-  font-size: 1.1rem;
-  color: #ff8fa3;
-  transition: 0.2s;
-}
-
-.dropdown-item:hover {
-  background: #fff0f4;
-  color: #b02a5b;
-  transform: translateX(4px);
-}
-
-.dropdown-item:hover i {
-  color: #d6336c;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .navbar-categorias {
-    padding: 12px 10px;
-  }
-
-  .nav-cat {
-    padding: 10px 24px;
-    font-size: 0.9rem;
-  }
-
-  .dropdown-menu {
-    min-width: 180px;
-  }
-}
-
-/* ============================================
-   MENÚ CON SUBCATEGORÍAS (LISTADO VERTICAL)
-============================================ */
-.navbar-categorias {
-  display: flex;
-  justify-content: flex-start;;
   background: white;
   padding: 15px 20px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
@@ -931,11 +808,15 @@ footer {
   transition: transform 0.3s ease;
 }
 
-/* Menú desplegable principal */
+.dropdown-menu.abierto ~ .nav-cat .flecha,
+.nav-cat:has(+ .dropdown-menu.abierto) .flecha {
+  transform: rotate(180deg);
+}
+
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 10px);
-  left: 0;                                   /* 👈 alineado a la izquierda */
+  left: 0;
   transform: translateY(-10px);
   background: white;
   border-radius: 15px;
@@ -954,8 +835,6 @@ footer {
   transform: translateY(0);
 }
 
-
-/* Cada categoría del menú */
 .cat-item {
   position: relative;
 }
@@ -994,7 +873,6 @@ footer {
   transition: transform 0.3s ease;
 }
 
-/* Submenú desplegable */
 .submenu {
   max-height: 0;
   overflow: hidden;
@@ -1003,41 +881,21 @@ footer {
   border-radius: 10px;
   margin-top: 4px;
   padding: 0 6px;
-}
-
-.submenu.abierto {
-  max-height: 240px;        /* 👈 altura máxima visible */
-  overflow-y: auto;         /* 👈 scroll vertical */
-  padding: 8px;
-}
-
-/* Scroll personalizado (solo navegadores WebKit: Chrome, Edge, Safari) */
-.submenu::-webkit-scrollbar {
-  width: 6px;
-}
-
-.submenu::-webkit-scrollbar-track {
-  background: #fff0f4;
-  border-radius: 3px;
-}
-
-.submenu::-webkit-scrollbar-thumb {
-  background: #ff8fa3;
-  border-radius: 3px;
-}
-
-.submenu::-webkit-scrollbar-thumb:hover {
-  background: #d6336c;
-}
-
-/* Firefox (usa otra propiedad) */
-.submenu {
   scrollbar-width: thin;
   scrollbar-color: #ff8fa3 #fff0f4;
 }
 
+.submenu.abierto {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 8px;
+}
 
-/* Cada subcategoría */
+.submenu::-webkit-scrollbar { width: 6px; }
+.submenu::-webkit-scrollbar-track { background: #fff0f4; border-radius: 3px; }
+.submenu::-webkit-scrollbar-thumb { background: #ff8fa3; border-radius: 3px; }
+.submenu::-webkit-scrollbar-thumb:hover { background: #d6336c; }
+
 .submenu-item {
   display: block;
   width: 100%;
@@ -1058,28 +916,9 @@ footer {
   padding-left: 22px;
 }
 
-/* Rotación de flechas al abrir */
 .cat-titulo.activo .flecha-sub {
   transform: rotate(90deg);
 }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .navbar-categorias {
-    padding: 12px 10px;
-  }
-
-  .nav-cat {
-    padding: 10px 24px;
-    font-size: 0.9rem;
-  }
-
-  .dropdown-menu {
-    min-width: 220px;
-  }
-}
-
-
 
 /* ============================================
    MINIATURAS EN EL MODAL
@@ -1117,8 +956,6 @@ footer {
 /* ============================================
    🎄 DECORACIÓN NAVIDEÑA
 ============================================ */
-
-/* ---------- Guirnalda de luces ---------- */
 .guirnalda {
   display: flex;
   justify-content: center;
@@ -1162,7 +999,6 @@ footer {
   100% { opacity: 1; transform: scale(1.1); }
 }
 
-/* ---------- Banner navideño ---------- */
 .banner-navidad {
   display: flex;
   align-items: center;
@@ -1178,18 +1014,14 @@ footer {
   animation: brillo 4s linear infinite;
 }
 
-.banner-navidad p {
-  margin: 0;
-}
+.banner-navidad p { margin: 0; }
 
 .banner-navidad span {
   font-size: 1.4rem;
   animation: balanceo 2s ease-in-out infinite;
 }
 
-.banner-navidad span:last-child {
-  animation-delay: 0.5s;
-}
+.banner-navidad span:last-child { animation-delay: 0.5s; }
 
 @keyframes brillo {
   0% { background-position: 0% center; }
@@ -1201,7 +1033,6 @@ footer {
   50% { transform: rotate(10deg); }
 }
 
-/* ---------- Copos de nieve ---------- */
 .nieve {
   position: fixed;
   top: 0;
@@ -1223,63 +1054,99 @@ footer {
 }
 
 @keyframes caer {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(105vh) rotate(360deg);
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(105vh) rotate(360deg); }
+}
+
+/* ============================================
+   RESPONSIVE GENERAL (MÓVILES Y TABLETS)
+============================================ */
+@media (max-width: 900px) {
+  .promo-card {
+    flex: 0 0 calc(50% - 15px); /* 2 tarjetas en Tablet */
   }
 }
 
-/* ---------- Detalles en productos ---------- */
+@media (max-width: 700px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .modal-imagen > img { height: 260px; }
+  .modal-contenido { padding: 20px; max-height: 95vh; }
+  .modal-info h2 { font-size: 1.4rem; }
+  .modal-precio { font-size: 1.3rem; }
+}
 
-
-
-
-
-/* ---------- Responsive ---------- */
 @media (max-width: 600px) {
+  /* Navbar y Categorías */
+  .navbar-categorias { padding: 12px 10px; }
+  .nav-cat { padding: 10px 24px; font-size: 0.9rem; }
+  .dropdown-menu { min-width: 220px; }
+
+  /* Promociones */
+  .promociones h2 { font-size: 1.5rem; }
+  .promo-card { flex: 0 0 100%; /* 1 tarjeta en Celular */ }
+  .promo-imagen img { height: 180px; }
+  .carrusel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  .carrusel-btn.prev { left: -10px; }
+  .carrusel-btn.next { right: -10px; }
+
+  /* Decoración Navideña */
   .banner-navidad {
     font-size: 0.8rem;
     padding: 10px 12px;
     gap: 8px;
   }
+  .banner-navidad span { font-size: 1.1rem; }
+  .guirnalda { gap: 10px; }
+  .luz { width: 9px; height: 9px; }
 
-  .banner-navidad span {
-    font-size: 1.1rem;
-  }
-
-  .guirnalda {
+  /* Header y Carrito (Opción 3 - Recomendada) */
+  header {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 10px;
+    text-align: left;
   }
+  header h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+    line-height: 1.2;
+  }
+  header p { display: none; }
+  
+  .btn-carrito {
+    position: static;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  #contador-carrito {
+    top: -4px;
+    right: -4px;
+  }
+  .guirnalda { display: none; }
+}
 
-  .luz {
-    width: 9px;
-    height: 9px;
+@media (max-width: 480px) {
+  /* Panel del carrito oculto al 100% */
+  .panel-carrito {
+    width: 100%;
+    right: -100%;
+  }
+  .panel-carrito.abierto {
+    right: 0;
   }
 }
-
-/* ============================================
-   🔕 CÓMO DESACTIVAR LA DECORACIÓN
-   (por si quieres quitarla después de Navidad)
-   
-   Solo agrega la clase "sin-navidad" a la etiqueta
-   <body> en el HTML:
-   
-   <body class="sin-navidad">
-   
-   Y descomenta las reglas de abajo:
-============================================ */
-/*
-.sin-navidad .guirnalda,
-.sin-navidad .banner-navidad,
-.sin-navidad .nieve {
-  display: none !important;
-}
-
-.sin-navidad .producto:hover {
-  border: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-*/
 
