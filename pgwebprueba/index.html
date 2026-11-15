@@ -70,7 +70,7 @@
 
           <div class="submenu" id="submenu-perros">
             <button class="submenu-item" onclick="irASubcategoria('perros', 'todos', this)">Todos</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPA IMPORTADA', this)">Ropa Importada</button>
+            <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPA IMPORTADA', this)">Ropa Importada-Conjuntos</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'PAÑALERA', this)">Pañalera-Canguros</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPON', this)">Ropon</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'AJUAR', this)">Ajuar</button>
@@ -111,85 +111,142 @@
       
 
 
-
-     <!-- ============================================
+  <!-- ============================================
        SECCIÓN DE PROMOCIONES (CON PRODUCTOS REALES)
   ============================================ -->
   <section class="promociones">
     <h2>🎉 Promociones Especiales</h2>
     <p class="subtitulo-promo">Aprovecha nuestras ofertas por tiempo limitado</p>
 
-    <div class="galeria-promos">
+    <!-- 👇 NUEVO CONTENEDOR DEL CARRUSEL 👇 -->
+    <div class="carrusel-wrapper">
+      
+      <!-- Botón Retroceder (FUERA de la galería) -->
+      <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
 
-      <!-- PROMO 1: NUEVO -->
-      <div class="promo-card producto" onclick="abrirModal(this)"
-           data-id="promo1" data-nombre=" SÚPER PACK para tu engreíd@" data-precio="60"
-           data-img="img/PACK1.jpeg"
-           data-desc="🎀 Disponible para niña y niño."
-           data-carac="Pañalera|Ajuar Algodón Yersey|Roponcito Micropolar|Toalla felpa|Colcha plush|Babita Pima|Medias algodón">
-        <div class="promo-imagen">
-          <img src="img/PACK1.jpeg" alt="Kit de bienvenida para cachorro">
-          <span class="etiqueta-descuento nuevo">NUEVO</span>
+      <!-- Galería de Promociones -->
+      <div class="galeria-promos" id="carrusel-promos">
+
+        <!-- PROMO 1 -->
+        <div class="promo-card producto" onclick="abrirModal(this)"
+             data-id="promo1" data-nombre="TRIPACK DE MEDIA NAVIDEÑAS" data-precio="12"
+             data-img="img/MEDIASNAVIDEÑAS.JPG"
+             data-desc="Tejidas en algodón suave y elastizado que abraza el piecito sin apretar, mantienen el calorcito ideal para las noches de diciembre y son perfectas para las fotos de Navidad, las reuniones familiares y los regalos de temporada."
+             data-carac="Algodón suave y transpirable, amigable con la piel del bebé.|Puño elastizado que no marca ni aprieta.|Tallas: 0-6 meses y 6-12 meses.">
+          <div class="promo-imagen">
+            <img src="img/MEDIASNAVIDEÑAS.JPG" alt="Súper Pack">
+            <span class="etiqueta-descuento nuevo">NUEVO</span>
+          </div>
+          <div class="promo-info">
+            <h3>TRIPACK DE MEDIA NAVIDEÑAS</h3>
+            <p class="promo-precio">S/ 12.00</p>
+            <p> Colores clásicos de temporada: rojo, verde y blanco.</p>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+          </div>
         </div>
-        <div class="promo-info">
-          <h3> SÚPER PACK para tu engreíd@</h3>
-          <p class="promo-precio">S/ 60.00 <small><s> </s></small></p>
-          <p>Puedes escoger los colores de tu preferencia!</p>
-          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-            <i class="fas fa-cart-plus"></i> Agregar
-          </button>
+
+        
+        <!-- PROMO 2 (Corregido: se agregó la clase promo-card) -->
+        <div class="promo-card producto" onclick="abrirModal(this)"
+             data-id="promo2" data-nombre="🎄❤️ ¡AJUARES NAVIDEÑOS PARA TU ENGREÍD@! ❤️🎄" data-precio="14"
+             data-img="img/NAVIDEÑO1.jpeg"
+             data-imgs="img/NAVIDEÑO1.jpeg|img/NAVIDEÑO2.jpeg|img/NAVIDEÑO3.jpeg|img/NAVIDEÑO4.jpeg|img/NAVIDEÑO5.jpeg|img/NAVIDEÑO6.jpeg"
+             data-desc="¡Hermosos modelitos para que tu bebé luzca precioso esta Navidad. 🎅🏻👶🏻"
+             data-carac="✨ 100% algodón Pima.|🌸 Material antialérgico, suave y delicado con la piel de tu bebé.|💕 Tallita de 0 a 4 meses.">
+          <div class="promo-imagen">
+            <img src="img/NAVIDEÑO1.jpeg" alt="Ajuar Navideño">
+            <span class="etiqueta-descuento nuevo">NUEVO</span>
+          </div>
+          <div class="promo-info">
+            <h3>🎄❤️ ¡AJUARES NAVIDEÑOS!</h3>
+            <p class="promo-precio">S/ 14.00</p>
+            <p>Hermosos modelitos para esta Navidad. 🎅🏻👶🏻</p>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+          </div>
         </div>
-      </div>
 
-      <!-- PROMO 2: NUEVO -->
-
-<div class="producto"   onclick="abrirModal(this)"
-           data-id="g1" data-nombre="🎄❤️ ¡AJUARES NAVIDEÑOS PARA TU ENGREÍD@! ❤️🎄" data-precio="14"
-           data-img="img/NAVIDEÑO1.jpeg"
-           data-imgs="img/NAVIDEÑO1.jpeg|img/NAVIDEÑO2.jpeg|img/NAVIDEÑO3.jpeg|img/NAVIDEÑO4.jpeg|img/NAVIDEÑO5.jpeg|img/NAVIDEÑO6.jpeg"
-           data-desc="!Hermosos modelitos para que tu bebé luzca precioso esta Navidad. 🎅🏻👶🏻"
-           data-carac="✨ 100% algodón Pima.|🌸 Material antialérgico, suave y delicado con la piel de tu bebé.|💕 Tallita de 0 a 4 meses.">
-        <div class="promo-imagen">
-          <img src="img/NAVIDEÑO1.jpeg" alt="Combo relax para gatos">
-          <span class="etiqueta-descuento nuevo">NUEVO</span>
+        <!-- PROMO 3 -->
+         <div class="promo-card producto" onclick="abrirModal(this)"
+             data-id="promo4" data-nombre="BODYS NAVIDEÑOS TALLA 2" data-precio="15"
+             data-img="img/BODYNAVIDEÑO.JPG"
+             data-desc="Celebra la primera Navidad de tu bebé con nuestros adorables bodys navideños en talla 2, diseñados especialmente para recién nacidos y bebés de 0 a 6 meses. Confeccionados en algodón suave y transpirable que cuida la piel sensible del bebé."
+             data-carac="✨ 100% algodón Pima.|🌸 Material antialérgico">
+          <div class="promo-imagen">
+            <img src="img/BODYNAVIDEÑO.JPG" alt="Mochila Anticaidas">
+            <span class="etiqueta-descuento nuevo">NUEVO</span>
+          </div>
+          <div class="promo-info">
+            <h3>BODYS NAVIDEÑOS TALLA 2</h3>
+            <p class="promo-precio">S/ 15.00</p>
+            <p>Hermosos modelitos para esta Navidad. 🎅🏻👶🏻</p>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+          </div>
         </div>
-        <div class="promo-info">
-          <h3>🎄❤️ ¡AJUARES NAVIDEÑOS PARA TU ENGREÍD@! ❤️🎄s</h3>
-          <p class="promo-precio">S/ 14.00 <small><s></s></small></p>
-          <p>Hermosos modelitos para que tu bebé luzca precioso esta Navidad. 🎅🏻👶🏻</p>
-          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-            <i class="fas fa-cart-plus"></i> Agregar
-          </button>
+
+       
+        <!-- PROMO 4 -->
+       <div class="promo-card producto" onclick="abrirModal(this)"
+             data-id="promo3" data-nombre="Mochila Anticaidas + Casco Antigoles" data-precio="45"
+             data-img="img/PACK2.jpeg"
+             data-desc="Nuestra mochila anticaída está diseñada especialmente para proteger la espalda y la cabeza de tu pequeño."
+             data-carac="Fabricada con felpa de alta calidad|Cuenta con correas ajustables|Disponible en varios animalitos">
+          <div class="promo-imagen">
+            <img src="img/PACK2.jpeg" alt="Mochila Anticaidas">
+            <span class="etiqueta-descuento nuevo">PROMOCION<span>
+          </div>
+          <div class="promo-info">
+            <h3>Mochila Anticaidas + Casco</h3>
+            <p class="promo-precio">S/ 45.00</p>
+            <p>¡Acompaña a tu bebé en sus primeros pasos!</p>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+          </div>
         </div>
-      </div>
 
-
-     
-
-      <!-- PROMO 3: NUEVO -->
-      <div class="promo-card producto" onclick="abrirModal(this)"
-           data-id="promo3" data-nombre="Mochila Anticaidas + Casco Antigoles" data-precio="45"
-           data-img="img/PACK2.jpeg"
-           data-desc="Nuestra mochila anticaída está diseñada especialmente para proteger la espalda y la cabeza de tu pequeño mientras aprende a caminar, brindándote a ti la tranquilidad que necesitas."
-           data-carac="Fabricada con felpa de alta calidad, suave al tacto y ligera|Cuenta con correas ajustables en los hombros que se adaptan al cuerpo del bebé|Disponible en una variedad de adorables animalitos (Elefante, Koala, León, Cerdito, Abejita, entre otros)">
-        <div class="promo-imagen">
-          <img src="img/PACK2.jpeg" alt="Pack de juguetes interactivos">
-          <span class="etiqueta-descuento nuevo">NUEVO</span>
+         <!-- PROMO 5 -->
+        <div class="promo-card producto" onclick="abrirModal(this)"
+             data-id="promo1" data-nombre="SÚPER PACK para tu engreíd@" data-precio="60"
+             data-img="img/PACK1.jpeg"
+             data-desc="🎀 Disponible para niña y niño."
+             data-carac="Pañalera|Ajuar Algodón Yersey|Roponcito Micropolar|Toalla felpa|Colcha plush|Babita Pima|Medias algodón">
+          <div class="promo-imagen">
+            <img src="img/PACK1.jpeg" alt="Súper Pack">
+            <span class="etiqueta-descuento nuevo">PROMOCION</span>
+          </div>
+          <div class="promo-info">
+            <h3>SÚPER PACK para tu engreíd@</h3>
+            <p class="promo-precio">S/ 60.00</p>
+            <p>Puedes escoger los colores de tu preferencia!</p>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+          </div>
         </div>
-        <div class="promo-info">
-          <h3>Mochila Anticaidas + Casco Antigoles</h3>
-          <p class="promo-precio">S/ 45.00 <small><s></s></small></p>
-          <p>¡Acompaña a tu bebé en sus primeros pasos con seguridad!</p>
-          <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
-            <i class="fas fa-cart-plus"></i> Agregar
-          </button>
-        </div>
-      </div>
 
-    </div>
+
+
+      </div> <!-- Cierre de galeria-promos -->
+
+      <!-- Botón Avanzar (FUERA de la galería) -->
+      <button class="carrusel-btn next" onclick="moverCarrusel(1)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+    </div> <!-- Cierre de carrusel-wrapper -->
   </section>
 
-<!-- ============================================
+
+
+     <!-- ============================================
        CATÁLOGO kids (5 productos)
   ============================================ -->
   <section id="perros" class="catalogo oculto">
@@ -200,6 +257,34 @@
                  <!-- ============================================
                                    PAÑALERAS
                       ============================================ -->
+       <div class="producto"      data-subcat="PAÑALERA"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CANGURO ERGONOMICO" data-precio="60"
+           data-img="img/CANGURO.jpeg"
+           data-desc=""
+           data-carac="Desde recién nacido hasta 22 kg|Favorece la postura correcta del bebé|Tela suave y transpirable|Incluye un asientito desmontable según preferencia|Múltiples posiciones: frontal, lateral y espalda|">
+        <img src="img/CANGURO.jpeg" alt="Correa retráctil">
+        <p>CANGURO ERGONOMICO</p>
+        <span>S/ 60.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+      <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="CINTURON ARNES PARA MOTO" data-precio="30"
+           data-img="img/CINTURONMOTO.JPG"
+           data-imgs="img/CINTURONMOTO.JPG|img/CINTURONMOTO1.JPG|img/CINTURONMOTO2.JPG|img/CINTURONMOTO3.JPG|img/CINTURONMOTO4.JPG"
+           data-desc="Ajustable y cómodo: Con correas ajustables, el cinturón se adapta perfectamente al tamaño y forma del niño, asegurando un ajuste cómodo y seguro en cada viaje."
+           data-carac="Materiales resistentes: Fabricado con materiales de alta calidad, el cinturón es resistente y duradero, brindando protección contra el desgaste y condiciones climáticas adversas.|Fácil de usar: Su diseño intuitivo permite una colocación y extracción rápida y sencilla, facilitando su uso en cada salida en moto.|Visibilidad mejorada: Incorpora elementos reflectantes para una mayor visibilidad del niño, especialmente en situaciones de baja iluminación.|Diámetro con correa regulable : 80 cm. Ancho diámetro cintura con correas regulables : 80 cm. Altura con Pechera + Correa : 39 cm.">
+        <img src="img/CINTURONMOTO.JPG" alt="Rascador premium">
+        <p>CINTURON ARNES PARA MOTO</p>
+        <span>S/ 30.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+
        <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
            data-id="g1" data-nombre="PAÑALERA LAZO" data-precio="40"
            data-img="img/PAÑALERA1.JPG"
@@ -213,18 +298,50 @@
         </button>
       </div>
 
-        <div class="producto"      data-subcat="PAÑALERA"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="GUCANRO ERGONOMICO" data-precio="60"
-           data-img="img/CANGURO.jpeg"
-           data-desc=""
-           data-carac="Desde recién nacido hasta 22 kg|Favorece la postura correcta del bebé|Tela suave y transpirable|Incluye un asientito desmontable según preferencia|Múltiples posiciones: frontal, lateral y espalda|">
-        <img src="img/CANGURO.jpeg" alt="Correa retráctil">
-        <p>GUCANRO ERGONOMICO</p>
-        <span>S/ 60.00</span>
+        
+      <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MOCHILA PAÑALERA IMPERMEABLE" data-precio="55"
+           data-img="img/MOCHILAPAÑALERA1.JPG"
+           data-imgs="img/MOCHILAPAÑALERA1.JPG|img/MOCHILAPAÑALERA1-3.JPG|img/MOCHILAPAÑALERA1-2.JPG|img/MOCHILAPAÑALERA1-1.JPG"
+           data-desc="Extra espaciosa y cuidadosamente organizada: todo tiene su lugar: con un espacioso compartimento principal, más de 14 bolsillos, fundas elásticas para botellas y un interior de color claro, esta mochila para pañales hace que sea fácil localizar lo esencial de un vistazo. Se adapta a pañales, toallitas, juguetes, aperitivos, incluso una computadora portátil de 14 pulgadas, sin sentirse voluminosa."
+           data-carac="Incluye un bolsillo con cierre de acceso para toallitas.|Bolsillos laterales dobles para botellas y un soporte para chupete dedicado con su propio gancho de fijación.|El compartimento frontal aislado mantiene las botellas o bolsas de hielo frías durante horas.|Tela oxford suave e impermeable con costuras reforzadas que ofrece una durabilidad duradera, mientras que el acabado brillante se limpia en segundos.">
+        <img src="img/MOCHILAPAÑALERA1.JPG" alt="Rascador premium">
+        <p>MOCHILA PAÑALERA IMPERMEABLE</p>
+        <span>S/ 55.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
-      </div> 
+      </div>
+
+
+      <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MOCHILA PAÑALERA PINK ELEFANTE" data-precio="55"
+           data-img="img/MOCHILAPAÑALERA2.JPG"
+           data-imgs="img/MOCHILAPAÑALERA2.JPG|img/MOCHILAPAÑALERA2-1.JPG|img/MOCHILAPAÑALERA2-2.JPG|img/MOCHILAPAÑALERA2-3.JPG"
+           data-desc="La mochila tiene un interior espacioso que puede contener todo lo esencial de su bebé, por lo que es perfecto para actividades al aire libre."
+           data-carac="Esta bolsa de pañales no es solo una bolsa de pañales, sino también una mochila que se puede usar para otros fines.|La mochila está hecha de material impermeable, asegurando que los pañales y la ropa de su bebé permanezcan secos incluso en condiciones húmedas.|Lavar en agua fría, No usar legía, Secar extendido, No retorcer, Colgar para secar inmediatamente después del lavado, No limpiar en seco, Evitar el uso de plancha.">
+        <img src="img/MOCHILAPAÑALERA2.JPG" alt="Rascador premium">
+        <p>MOCHILA PAÑALERA PINK ELEFANTE</p>
+        <span>S/ 55.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MOCHILA PAÑALERA CON BOLSA MAS MONEDERO NEGRO" data-precio="50"
+           data-img="img/MOCHILAPAÑALERA3.JPG"
+           data-imgs="img/MOCHILAPAÑALERA3.JPG|img/MOCHILAPAÑALERA3-1.JPG|img/MOCHILAPAÑALERA3-2.JPG"
+           data-desc="La Mochila Pañalera ofrece una solución práctica y elegante para mantener todo organizado durante salidas con el bebé. Su diseño inteligente integra un bolsillo lateral para pañales, dispensador para pañuelos, bolsillo frontal de acceso rápido, compartimento interno de separación y espacio para botellas, permitiendo tener cada artículo en su lugar y al alcance."
+           data-carac="Organización completa con compartimentos estratégicos.|Incluye bolsa de mano y monedero para mayor versatilidad.|Medidas: 30 x 15 x 40 cm| Peso: 0.650 kg">
+        <img src="img/MOCHILAPAÑALERA3.JPG" alt="Rascador premium">
+        <p>MOCHILA PAÑALERA CON BOLSA MAS MONEDERO NEGRO</p>
+        <span>S/ 50.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
 
 
                   <!-- ============================================
@@ -288,30 +405,32 @@
       </div>
 
        <div class="producto"      data-subcat="ASEO"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="CEPILLO DEDAL SANTOLEE" data-precio="6"
+           data-id="p6" data-nombre="CEPILLO DEDAL SANTOLEE" data-precio="8"
            data-img="img/DEDAL.JPG"
            data-desc="Ideal para la limpieza delicada de encías, lengua y primeros dientes del bebé desde los primeros meses.Calma la picazón, inflamación e incomodidad durante la salida de los primeros brotes dentales. Permite mantener el cepillo protegido, limpio y listo para usar en viajes o salidas."
            data-carac="🖌️ Cerdas ultra suaves de silicona: Diseñadas para masajear las encías sensibles sin causar irritación ni heridas.|🪥 1 Cepillo de silicona tipo dedal: Funda flexible de silicona de grado alimenticio que se adapta al dedo del adulto.|💼 1 Estuche/Porta cepillo viajero: Caja protectora rígida y transparente con base rosada para resguardar el dedal.|🛡️ 100% Seguro y atóxico (BPA Free): Fabricado con silicona de grado alimenticio, totalmente libre de BPA, PVC y ftalatos.">
         <img src="img/DEDAL.JPG" alt="Correa retráctil">   
         <p>CEPILLO DEDAL SANTOLEE</p>
-        <span>S/ 6.00</span>
+        <span>S/ 8.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div> 
-
-       <div class="producto"      data-subcat="ASEO"   onclick="abrirModal(this)"
-           data-id="p6" data-nombre="ASPIRADOR NASAL MANUAL PARA BEBES" data-precio="15"
-           data-img="img/ASPIRADORNASAL.jpeg"
+    
+      <div class="producto"  data-subcat="ASEO" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="ASPIRADOR NASAL MANUAL PARA BEBES" data-precio="15"
+           data-img="img/ASPIRADORNASAL2.JPG"
+           data-imgs="img/ASPIRADORNASAL2.JPG|img/ASPIRADORNASAL.jpeg"
            data-desc="El aspirador nasal manual para bebé en un delicado color rosa es un accesorio esencial para mantener a tu pequeño respirando con total libertad."
            data-carac="🛡️ 100% Seguro y atóxico (BPA Free): Fabricado con silicona de grado alimenticio, totalmente libre de BPA, PVC y ftalatos.|Diseño ergonómico y suave que asegura un uso cómodo y seguro, pensando en la delicada nariz de tu pequeño.">
-        <img src="img/ASPIRADORNASAL.jpeg" alt="Correa retráctil">   
+        <img src="img/ASPIRADORNASAL2.JPG" alt="Rascador premium">
         <p>ASPIRADOR NASAL MANUAL PARA BEBES</p>
         <span>S/ 15.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
-      </div> 
+      </div>
+      
 
       
                   <!-- ============================================
@@ -367,27 +486,28 @@
                                    ROPON
                       ============================================ -->
   
-     <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
-           data-id="p6" data-nombre="ROPON POLLITO DE LANA" data-precio="9"
-           data-img="img/ROPONPOLLITO.JPG"
+
+     <div class="producto"   data-subcat="ROPON"  onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON HILO TACTO" data-precio="18"
+           data-img="img/ROPONHILO.JPG"
            data-desc=""
-           data-carac="Material: Lana|Set de 4 piezas">
-        <img src="img/ROPONPOLLITO.JPG" alt="Correa retráctil">
-        <p>ROPON POLLITO DE LANA</p>
-        <span>S/ 9.00</span>
+           data-carac="Material: Hilo">
+        <img src="img/ROPONHILO.JPG" alt="Correa retráctil">
+        <p>ROPON HILO TACTO</p>
+        <span>S/ 18.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
 
-      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
-           data-id="p6" data-nombre="ROPON POLAR CON PECHO IMPERMEABLE" data-precio="12"
-           data-img="img/ROPONROYER.JPG"
+      <div class="producto"   data-subcat="ROPON"  onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON PUNTO INGLES" data-precio="18"
+           data-img="img/ROPONPUNTOINGLES.JPG"
            data-desc=""
-           data-carac="Material: Polar">
-        <img src="img/ROPONROYER.JPG" alt="Correa retráctil">
-        <p>ROPON POLAR CON PECHO IMPERMEABLE</p>
-        <span>S/ 12.00</span>
+           data-carac="Material: ">
+        <img src="img/ROPONPUNTOINGLES.JPG" alt="Correa retráctil">
+        <p>ROPON PUNTO INGLES</p>
+        <span>S/ 18.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -406,14 +526,66 @@
         </button>
       </div>
 
-      <div class="producto"   data-subcat="ROPON"  onclick="abrirModal(this)"
-           data-id="p6" data-nombre="ROPON HILO TACTO" data-precio="18"
-           data-img="img/ROPONHILO.JPG"
+       <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON POLAR CON PECHO IMPERMEABLE" data-precio="12"
+           data-img="img/ROPONROYER.JPG"
            data-desc=""
-           data-carac="Material: Hilo">
-        <img src="img/ROPONHILO.JPG" alt="Correa retráctil">
-        <p>ROPON HILO TACTO</p>
-        <span>S/ 18.00</span>
+           data-carac="Material: Polar">
+        <img src="img/ROPONROYER.JPG" alt="Correa retráctil">
+        <p>ROPON POLAR CON PECHO IMPERMEABLE</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON POLAR CON PECHO EN JACKAR" data-precio="12"
+           data-img="img/ROPONPOLAR1.JPG"
+           data-desc=""
+           data-carac="Material: Polar">
+        <img src="img/ROPONPOLAR1.JPG" alt="Correa retráctil">
+        <p>ROPON POLAR CON PECHO EN JACKAR</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+      
+      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON POLAR CON PECHO BURBUJA" data-precio="12"
+           data-img="img/ROPONPOLAR2.JPG"
+           data-desc=""
+           data-carac="Material: Polar">
+        <img src="img/ROPONPOLAR2.JPG" alt="Correa retráctil">
+        <p>ROPON POLAR CON PECHO BURBUJA</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON MICROPOLAR" data-precio="12"
+           data-img="img/ROPONPOLAR3.JPG"
+           data-desc=""
+           data-carac="Material: Polar">
+        <img src="img/ROPONPOLAR3.JPG" alt="Correa retráctil">
+        <p>ROPON MICROPOLAR</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+     <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="ROPON POLLITO DE LANA" data-precio="9"
+           data-img="img/ROPONPOLLITO.JPG"
+           data-desc=""
+           data-carac="Material: Lana|Set de 4 piezas">
+        <img src="img/ROPONPOLLITO.JPG" alt="Correa retráctil">
+        <p>ROPON POLLITO DE LANA</p>
+        <span>S/ 9.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -423,6 +595,32 @@
                   <!-- ============================================
                                    AJUAR
                       ============================================ -->
+       <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR CLINICO PREMIUM DE 0-6 MESES" data-precio="20"
+           data-img="img/AJUARCLINICO2.JPG"
+           data-desc="Recibe a tu bebé con la suavidad y el cuidado que merece. Nuestros ajuares clínicos están confeccionados en algodón 100% hipoalergénico, ideal para la piel sensible del recién nacido. "
+           data-carac="Incluye body manga larga con manoplas, pantalón anticólicos y gorrito.|Algodón pima suave y transpirable, libre de irritantes.">
+        <img src="img/AJUARCLINICO2.JPG" alt="Correa retráctil">
+        <p>AJUAR CLINICO PREMIUM DE 0-6 MESES</p>
+        <span>S/ 20.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+
+      <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
+           data-id="p6" data-nombre="AJUAR CLINICO BORDADO DE 0-3 MESES" data-precio="18"
+           data-img="img/AJUARCLINICO1.JPG"
+           data-desc="Recibe a tu bebé con la suavidad y el cuidado que merece. Nuestros ajuares clínicos están confeccionados en algodón 100% hipoalergénico, ideal para la piel sensible del recién nacido. "
+           data-carac="Incluye body manga larga con manoplas, pantalón anticólicos y gorrito.|Algodón pima suave y transpirable, libre de irritantes.">
+        <img src="img/AJUARCLINICO1.JPG" alt="Correa retráctil">
+        <p>AJUAR CLINICO PIMA DE 0-3 MESES</p>
+        <span>S/ 18.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
 
       <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
            data-id="p6" data-nombre="AJUAR BABERO" data-precio="5"
@@ -590,6 +788,20 @@
         </button>
       </div> 
 
+      <div class="producto"      data-subcat="COLCHAS"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="COLCHA DISNEY" data-precio="30"
+           data-img="img/COLCHA2.JPG"
+           data-desc=""
+           data-carac="Material: Plush con carnero">
+        <img src="img/COLCHA2.JPG" alt="Correa retráctil">
+        <p>COLCHA DISNEY</p>
+        <span>S/ 30.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+
       
                   <!-- ============================================
                                    MORDEDORES
@@ -627,22 +839,49 @@
            data-desc=""
            data-carac="🔲 Texturas relieve variadas: Puntos, líneas y rugosidades en la superficie para masajear las encías superiores e inferiores de forma suave.|🛡️ 100% Seguro y No Tóxico (Libre de BPA): Fabricado con materiales alimenticios de alta calidad totalmente seguros si el bebé lo muerde constantemente.|🎒 Práctico y portátil: Tamaño compacto ideal para enfriar rápido y llevar en la pañalera durante paseos o viajes.">
         <img src="img/MORDEDOR1.JPG" alt="Correa retráctil">
-        <p>COLCHA PLUSH BURBUJA CON PIMA</p>
+        <p>MORDEDOR DE MODELO CONTROL OSITO</p>
         <span>S/ 15.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>  
 
-      <div class="producto"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
-           data-id="g1" data-nombre="MORDEDOR BANANA (YELLOW)" data-precio="10"
+      <div class="producto agotado"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MORDEDOR BANANA (YELLOW)" data-precio="15"
            data-img="img/MORDEDOR2.JPG"
            data-imgs="img/MORDEDOR2.JPG|img/MORDEDOR2-2.JPG"
            data-desc="Mordedor de silicona modelo banana, ideal para calmar la dentición de las salidas de los dientes del bebé."
            data-carac="Silicona grado alimenticio|100 % libre de BPA, PVC y ftalatos">
         <img src="img/MORDEDOR2.JPG" alt="Rascador premium">
         <p>MORDEDOR BANANA (YELLOW)</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"      data-subcat="MORDEDOR"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="MORDEDOR REFRIGERANTE SANTOLEE" data-precio="10"
+           data-img="img/MORDEDOR3.JPG"
+           data-desc="El mordedor refrigerante Baby exclusivo Santolée se convierte en el aliado perfecto para tu bebé, adaptándose a la temperatura que necesites, sea fría o tibia, para aliviar las molestias del brote de sus primeros dientes."
+           data-carac="🛡️ 100% Seguro y No Tóxico (Libre de BPA): Fabricado con materiales alimenticios de alta calidad totalmente seguros si el bebé lo muerde constantemente.|🎒 Práctico y portátil: Tamaño compacto ideal para enfriar rápido y llevar en la pañalera durante paseos o viajes.|Proporciona un alivio efectivo y seguro para las encías de tu bebé gracias a su capacidad de adaptación térmica.">
+        <img src="img/MORDEDOR3.JPG" alt="Correa retráctil">
+        <p>MORDEDOR REFRIGERANTE SANTOLEE</p>
         <span>S/ 10.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>  
+
+       <div class="producto"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="MORDEDOR TIPO LLAVERO SANTOLEE" data-precio="12"
+           data-img="img/MORDEDOR4.JPG"
+           data-imgs="img/MORDEDOR4.JPG|img/MORDEDOR4-1.JPG|img/MORDEDOR4-2.JPG"
+           data-desc="¿Tu bebé está inquieto por la molesta salida de sus primeros dientecitos? Transforma ese momento de incomodidad en una experiencia de juego y alivio con el Mordedor tipo Llavero Santolee. Es el compañero perfecto para calmar las encías sensibles mientras estimula su curiosidad."
+           data-carac="Silicona grado alimenticio|100 % libre de BPA, PVC y ftalatos| Su anillo central es perfecto para que las manitas más pequeñas lo agarren con facilidad, fomentando su desarrollo sensorial y motricidad fina en cada exploración.">
+        <img src="img/MORDEDOR4.JPG" alt="Rascador premium">
+        <p>MORDEDOR TIPO LLAVERO SANTOLEE</p>
+        <span>S/ 12.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -661,9 +900,35 @@
         </button>
       </div>  
 
+      <div class="producto"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="COLGADOR CHUPON TIPO PERLA" data-precio="12"
+           data-img="img/COLGADORCHUPON1.jpeg"
+           data-imgs="img/COLGADORCHUPON1.jpeg|img/COLGADORCHUPON1-1.JPG|img/COLGADORCHUPON1-2.JPG|img/COLGADORCHUPON1-3.JPG"
+           data-desc="¿Cansado de estar recogiendo el chupón del suelo una y otra vez? Este sujetador de chupón con diseño de perlas es la solución que estabas buscando. Su lazo y sus perlitas de plástico acrílico no solo son adorables, sino que mantienen el chupón siempre al alcance de tu bebé, evitando pérdidas y caídas constantes."
+           data-carac="100 % libre de BPA|El diseño de perlitas es suave y ligero, perfecto para la delicada piel de tu hijo|Práctico lazo permite sujetarlo fácilmente a la ropa, al coche o a la cuna, asegurando que el chupón esté siempre limpio y a mano.">
+        <img src="img/COLGADORCHUPON1.jpeg" alt="Rascador premium">
+        <p>COLGADOR CHUPON TIPO PERLA</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
 
+       <div class="producto"  data-subcat="MORDEDOR" onclick="abrirModal(this)"
+           data-id="g1" data-nombre="COLGADOR CHUPON TIPO PANDA" data-precio="12"
+           data-img="img/COLGADORCHUPON2.JPG"
+           data-imgs="img/COLGADORCHUPON2.JPG|img/COLGADORCHUPON2-1.JPG|img/COLGADORCHUPON2-2.JPG"
+           data-desc="¿Cansado de estar recogiendo el chupón del suelo una y otra vez? Este sujetador de chupón con diseño de perlas es la solución que estabas buscando. Su lazo y sus perlitas de plástico acrílico no solo son adorables, sino que mantienen el chupón siempre al alcance de tu bebé, evitando pérdidas y caídas constantes."
+           data-carac="Lindo diseño: un encantador patrón de panda que atraerá tanto a padres como a bebés.|100 % libre de BPA|El diseño de perlitas es suave y ligero, perfecto para la delicada piel de tu hijo|Práctico lazo permite sujetarlo fácilmente a la ropa, al coche o a la cuna, asegurando que el chupón esté siempre limpio y a mano.">
+        <img src="img/COLGADORCHUPON2.JPG" alt="Rascador premium">
+        <p>COLGADOR CHUPON TIPO PANDA</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
 
-
+    
       
                   <!-- ============================================
                                    JUGUETES
@@ -701,10 +966,39 @@
         </button>
       </div>
 
+      <div class="producto"      data-subcat="ROPA IMPORTADA"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CONJUNTO TIRANTE Y POLO - MODELO OSITO TALLA 2" data-precio="45"
+           data-img="img/CONJUNTOTIRANTE.JPG"
+           data-desc="Viste a tu pequeño con el encanto y la elegancia de nuestro conjunto de polo con tirantes, un modelo tierno y versátil ideal para ocasiones especiales, fotos familiares o reuniones. La parte superior es un polo de manga corta en color blanco con un delicado estampado de ositos y pequeños detalles, que se complementa con un moño de pajarita a juego y tirantes ajustables con broches que le dan un toque clásico y distinguido."
+           data-carac="Polo de algodón suave y transpirable, con estampado de ositos.|Short con cintura elástica y botones decorativos para un ajuste cómodo.">
+        <img src="img/CONJUNTOTIRANTE.JPG" alt="Correa retráctil">
+        <p>CONJUNTO TIRANTE Y POLO - MODELO OSITO TALLA 2</p>
+        <span>S/ 45.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+    
+     <div class="producto"      data-subcat="ROPA IMPORTADA"   onclick="abrirModal(this)"
+           data-id="p6" data-nombre="CONJUNTO POLO Y SHORT - MODELO MARIPOSA TALLA 2" data-precio="25"
+           data-img="img/CONJUNTOMARIPOSA.JPG"
+           data-desc="Un conjunto fresco y lleno de color para las pequeñas de la casa. Este lindo set de dos piezas está conformado por un polo de manga corta con escote redondo y un delicado detalle de mariposa estampada en el pecho, y un short en azul marino con puños decorados con pequeños motivos florales. Su diseño ligero y cómodo es perfecto para los días cálidos y para que tu niña se mueva con total libertad."
+           data-carac="Polo de tela suave y transpirable, con escote redondo y detalle de mariposa.|Diseño fresco y cómodo, ideal para el día a día.|Talla: 2 (ideal para niñas de 1 a 2 años, según complexión).">
+        <img src="img/CONJUNTOMARIPOSA.JPG" alt="Correa retráctil">
+        <p>CONJUNTO POLO Y SHORT - MODELO MARIPOSA TALLA 2</p>
+        <span>S/ 25.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
       </div>  
     </section>
 
-  
+
+
+
   <!-- ============================================
        CATÁLOGO GATOS (5 productos) 
   ============================================ -->
