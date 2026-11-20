@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
   <!-- HEADER -->
   
 
@@ -74,12 +75,12 @@
             <button class="submenu-item" onclick="irASubcategoria('perros', 'PAÑALERA', this)">Pañalera-Canguros</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPON', this)">Ropon</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'AJUAR', this)">Ajuar</button>
-             <button class="submenu-item" onclick="irASubcategoria('perros', 'TOALLAS', this)">Toallas</button>
+             <button class="submenu-item" onclick="irASubcategoria('perros', 'TOALLAS', this)">Toallas-Pañal</button>
              <button class="submenu-item" onclick="irASubcategoria('perros', 'COLCHAS', this)">Colchas</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'BABEROS', this)">Baberos-Mandiles</button>
+            <button class="submenu-item" onclick="irASubcategoria('perros', 'BABEROS', this)">Baberos-Mandiles-Ombliguera</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'MEDIAS', this)">Medias</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'EXTRACTOR', this)">Extractor</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'ASEO', this)">Linea de aseo</button>
+            <button class="submenu-item" onclick="irASubcategoria('perros', 'ASEO', this)">Linea de aseo y cuidado</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'MORDEDOR', this)">Mordedores-Set de alimentacion</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'JUGUETES', this)">Juguetes y accesorios</button>
             
@@ -107,8 +108,6 @@
     </div>
   </nav>
 
-
-      
 
 
   <!-- ============================================
@@ -253,6 +252,7 @@
     <h2>Catálogo kids👶</h2>
     <div class="galeria">
 
+
   
                  <!-- ============================================
                                    PAÑALERAS
@@ -286,13 +286,13 @@
 
 
        <div class="producto"  data-subcat="PAÑALERA" onclick="abrirModal(this)"
-           data-id="K3" data-nombre="PAÑALERA LAZO" data-precio="40"
+           data-id="K3" data-nombre="PAÑALERA LAZO" data-precio="35"
            data-img="img/PAÑALERA1.JPG"
            data-desc=""
-           data-carac="Presentacion: Bolsa">
+           data-carac="Material: Lona">
         <img src="img/PAÑALERA1.JPG" alt="Rascador premium">
         <p>PAÑALERA LAZO</p>
-        <span>S/ 40.00</span>
+        <span>S/ 35.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -379,26 +379,41 @@
                       ============================================ -->
 
       <div class="producto"   data-subcat="ASEO"   onclick="abrirModal(this)"
-           data-id="K9" data-nombre="LIMADOR DE UÑAS PARA BEBES PRESENTACION EN CAJA AZUL Y ROSA" data-precio="16"
+           data-id="K9" data-nombre="LIMADOR DE UÑAS PARA BEBES ROSA" data-precio="16"
            data-img="img/LIMADOR.JPG"
            data-desc="Diseñada para recortar y pulir las uñitas de tu bebe de forma segura."
-           data-carac="Varios niveles de velocidad|luz led para mayor precision|silenciosa|Colores: Azul y rosa">
+           data-carac="Varios niveles de velocidad|luz led para mayor precision|silenciosa|Colores: Rosa">
         <img src="img/LIMADOR.JPG" alt="Cama acolchada">
-        <p>LIMADOR DE UÑAS PARA BEBES PRESENTACION EN CAJA AZUL Y ROSA</p>
+        <p>LIMADOR DE UÑAS PARA BEBES ROSA</p>
         <span>S/ 16.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
 
+      <div class="producto"   data-subcat="ASEO"   onclick="abrirModal(this)"
+           data-id="K9-1" data-nombre="LIMADOR DE UÑAS TIPO JIRAFA" data-precio="18"
+           data-img="img/LIMAJIRAFA.JPG"
+            data-imgs="img/LIMAJIRAFA.JPG|img/LIMAJIRAFA1.JPG|img/LIMAJIRAFA2.JPG|img/LIMAJIRAFA3.JPG"
+           data-desc="Descubre el cuidado más seguro y delicado para las pequeñas manos de tu bebé con la lima eléctrica para bebé Jirafa. Creada pensando en la tranquilidad de madres y padres, su diseño ergonómico con forma de jirafa es tan atractivo como funcional, permitiendo un agarre cómodo y seguro en cada uso."
+           data-carac="Sus limas ultrafinas cuidan las uñas del bebé sin riesgo de lastimar la piel.|Utiliza pilas AA, brindando libertad de movimiento y practicidad en cualquier lugar.|Tres velocidades ajustables: Adaptá la intensidad según la sensibilidad de tu bebé.Ideal para usar incluso mientras duerme gracias a su luz nocturna suave, que facilita la visibilidad sin molestar.">
+        <img src="img/LIMAJIRAFA.JPG" alt="Cama acolchada">
+        <p>LIMADOR DE UÑAS TIPO JIRAFA</p>
+        <span>S/ 18.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+
       <div class="producto"    data-subcat="ASEO"  onclick="abrirModal(this)"
-           data-id="K10" data-nombre="KIT DE CORTAUÑA GRANDE" data-precio="15"
+           data-id="K10" data-nombre="KIT DE CORTAUÑA GRANDE" data-precio="16"
            data-img="img/KITCORTAUÑAS.JPG"
            data-desc=""
            data-carac="Kit de piezas|Trae: Corta uñas, 2 peines, lima manual, tijerita, cepillo dedal, limpiaoidos, pinza de limpieza, aspirador y dispensador de medicina|Colores: Azul y rosa">
         <img src="img/KITCORTAUÑAS.JPG" alt="Plato doble">
         <p>KIT DE CORTAUÑA GRANDE</p>
-        <span>S/ 15.00</span>
+        <span>S/ 16.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -430,6 +445,21 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
+
+       <div class="producto"  data-subcat="ASEO" onclick="abrirModal(this)"
+           data-id="K12-1" data-nombre="PROTECTOR DE PEZON DE SILICONA SANTOLEE" data-precio="25"
+           data-img="img/PEZONERA.JPG"
+            data-imgs="img/PEZONERA.JPG|img/PEZONERA1.JPG"
+           data-desc="Diseñado específicamente para madres primerizas, este protector para pezones proporciona una anatomia perfecta para la succion del bebe de leche materna , hecho de material de silicona suave de calidad alimentaria, seguro y no tóxico. Logra proteccion ante las mordidas, la sensibilidad y daño al pezon materno."
+           data-carac="Este Protector para el pezón no contiene BPA, lo que garantiza que la leche materna no esté contaminada y la leche no tenga un olor peculiar, lo que protege mejor la seguridad de su bebé.|Es muy portátil y adecuada para uso doméstico y de viaje. Su diseño compacto lo hace adecuado para guardarlo en su bolso o bolso de bebé para proporcionarle leche materna a su bebé en cualquier momento y en cualquier lugar.">
+        <img src="img/PEZONERA.JPG" alt="Rascador premium">
+        <p>PROTECTOR DE PEZON DE SILICONA SANTOLEE</p>
+        <span>S/ 25.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+      
       
 
       
@@ -469,13 +499,55 @@
       </div>
 
      <div class="producto"     data-subcat="TOALLAS"    onclick="abrirModal(this)"
-           data-id="K15" data-nombre="TOALLA ECONOMICA 4 PIEZAS FELPA" data-precio="11"
+           data-id="K15-1" data-nombre="TOALLA ECONOMICA 4 PIEZAS FELPA" data-precio="11"
            data-img="img/TOALLAECO.JPG"
            data-desc=""
            data-carac="Material: Felpa|Set de 4 piezas| Lleva: Toalla grande, babero, babita y peine">
         <img src="img/TOALLAECO.JPG" alt="Correa retráctil">
         <p>TOALLA ECONOMICA FELPA</p>
         <span>S/ 11.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"  data-subcat="TOALLAS" onclick="abrirModal(this)"
+           data-id="K15-2" data-nombre="TRIPACK PAÑALES DE FRANELA ESTAMPADO" data-precio="15"
+           data-img="img/PAÑALFRANELA1.JPG"
+           data-imgs="img/PAÑALFRANELA1.JPG|img/PAÑALFRANELA1-1.JPG|img/PAÑALFRANELA1-2.JPG"
+           data-desc="Los pañales de franela es un tejido de algodón ideal para el cuidado en los primeros años. La suavidad y su composición. le permite tener una buena absorción natural, ser hipo alergénico además de ser económicos y amigables con el medio ambiente."
+           data-carac="Esta franela para pañal esta compuesta de 100% de algodón.|Permite que la piel traspire haciéndolo ideal para sus bebés.|Medidas: 73x48cm.">
+        <img src="img/PAÑALFRANELA1.JPG" alt="Rascador premium">
+        <p>TRIPACK PAÑALES DE FRANELA ESTAMPADO</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+       <div class="producto"  data-subcat="TOALLAS" onclick="abrirModal(this)"
+           data-id="K15-3" data-nombre="TRIPACK PAÑALES DE GASA ALGODON ESTAMPADO" data-precio="10"
+           data-img="img/PAÑALFRANELA1.JPG"
+           data-imgs="img/PAÑALFRANELA1.JPG|img/PAÑALFRANELA1-1.JPG|img/PAÑALFRANELA1-2.JPG"
+           data-desc="Paños de gasa suaves, livianos y altamente absorbentes. Perfectos para el cuidado diario del bebé, ideal como pañal de tela, toalla de baño o babero. Su diseño con estrellas y animales de colores aporta un toque tierno y divertido."
+           data-carac="Fabricados con capas de gasa de algodón de alta calidad. Este material es famoso por ser extremadamente suave al tacto, liviano y por permitir que la piel del bebé respire, previniendo irritaciones y sudoración excesiva.|A pesar de su textura fina, la gasa de algodón es muy absorbente, lo que la hace ideal para el contacto directo con la piel del bebé.|Medidas: 65x52cm.">
+        <img src="img/PAÑALFRANELA1.JPG" alt="Rascador premium">
+        <p>TRIPACK PAÑALES DE GASA ALGODON ESTAMPADO</p>
+        <span>S/ 10.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"     data-subcat="TOALLAS"    onclick="abrirModal(this)"
+           data-id="K15" data-nombre="CAMBIADOR DE PAÑAL PLASTIFICADO" data-precio="6"
+           data-img="img/SOLERA.JPG"
+           data-imgs="img/SOLERA.JPG|img/SOLERA1.jpeg"
+           data-desc="Práctico, impermeable y fácil de limpiar. El cambiador perfecto para cuidar a tu bebé donde sea. Diseñado para brindar comodidad e higiene en cada cambio, con un tierno estampado de animalitos y un práctico borde costurado."
+           data-carac="Fabricado con una capa de plástico o material plastificado de alta calidad que impide el paso de líquidos. Esto protege eficazmente cualquier superficie (cama, sofá, cambiador público) de accidentes, derrames o suciedad.|Su superficie es totalmente lavable. Basta con pasar un paño húmedo o usar toallitas húmedas para dejarlo como nuevo. Ideal para el uso diario y para llevar de viaje.">
+        <img src="img/SOLERA.JPG" alt="Correa retráctil">
+        <p>CAMBIADOR DE PAÑAL PLASTIFICADO</p>
+        <span>S/ 6.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
@@ -503,8 +575,9 @@
       <div class="producto"   data-subcat="ROPON"  onclick="abrirModal(this)"
            data-id="K17" data-nombre="ROPON PUNTO INGLES" data-precio="18"
            data-img="img/ROPONPUNTOINGLES.JPG"
+            data-imgs="img/ROPONPUNTOINGLES.JPG|img/ROPONPUNTOINGLES1.jpeg"
            data-desc=""
-           data-carac="Material: ">
+           data-carac="Material: Punto Ingles|Incluye:chompita, pantaloncito, zapatitos, Babero, gorrito.">
         <img src="img/ROPONPUNTOINGLES.JPG" alt="Correa retráctil">
         <p>ROPON PUNTO INGLES</p>
         <span>S/ 18.00</span>
@@ -516,8 +589,9 @@
       <div class="producto"   data-subcat="ROPON" onclick="abrirModal(this)"
            data-id="K18" data-nombre="ROPON DE LANA MODELO GALLINA" data-precio="14"
            data-img="img/ROPONGALLINA.JPG"
+           data-imgs="img/ROPONGALLINA.JPG|img/ROPONGALLINA1.jpeg"
            data-desc=""
-           data-carac="Material: Lana">
+           data-carac="Material: Lana|Incluye:chompita, pantaloncito, zapatitos, Babero y gorrito.">
         <img src="img/ROPONGALLINA.JPG" alt="Correa retráctil">
         <p>ROPON DE LANA MODELO GALLINA</p>
         <span>S/ 14.00</span>
@@ -555,8 +629,9 @@
       <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
            data-id="K21" data-nombre="ROPON POLAR CON PECHO BURBUJA" data-precio="12"
            data-img="img/ROPONPOLAR2.JPG"
+           data-imgs="img/ROPONPOLAR2.JPG|img/ROPONPOLAR2.jpeg"
            data-desc=""
-           data-carac="Material: Polar">
+           data-carac="Material: Polar|Incluye: chompita, pantaloncito, gorrito, Babero y zapatitos.">
         <img src="img/ROPONPOLAR2.JPG" alt="Correa retráctil">
         <p>ROPON POLAR CON PECHO BURBUJA</p>
         <span>S/ 12.00</span>
@@ -598,6 +673,7 @@
        <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
            data-id="K24" data-nombre="AJUAR CLINICO PREMIUM DE 0-6 MESES" data-precio="20"
            data-img="img/AJUARCLINICO2.JPG"
+           data-imgs="img/AJUARCLINICO2.JPG|img/AJUARCLINICO2-1.jpeg"
            data-desc="Recibe a tu bebé con la suavidad y el cuidado que merece. Nuestros ajuares clínicos están confeccionados en algodón 100% hipoalergénico, ideal para la piel sensible del recién nacido. "
            data-carac="Incluye body manga larga con manoplas, pantalón anticólicos y gorrito.|Algodón pima suave y transpirable, libre de irritantes.">
         <img src="img/AJUARCLINICO2.JPG" alt="Correa retráctil">
@@ -612,6 +688,7 @@
       <div class="producto"   data-subcat="AJUAR" onclick="abrirModal(this)"
            data-id="K25" data-nombre="AJUAR CLINICO BORDADO DE 0-3 MESES" data-precio="18"
            data-img="img/AJUARCLINICO1.JPG"
+            data-imgs="img/AJUARCLINICO1.JPG|img/AJUARCLINICO1-1.jpeg"
            data-desc="Recibe a tu bebé con la suavidad y el cuidado que merece. Nuestros ajuares clínicos están confeccionados en algodón 100% hipoalergénico, ideal para la piel sensible del recién nacido. "
            data-carac="Incluye body manga larga con manoplas, pantalón anticólicos y gorrito.|Algodón pima suave y transpirable, libre de irritantes.">
         <img src="img/AJUARCLINICO1.JPG" alt="Correa retráctil">
@@ -758,18 +835,43 @@
       </div>
  
       <div class="producto"      data-subcat="BABEROS"   onclick="abrirModal(this)"
-           data-id="K36" data-nombre="BABITA PIMA CON FELPA (TRIPACK)" data-precio="8"
+           data-id="K36" data-nombre="BABITA PIMA CON FELPA (TRIPACK)" data-precio="10"
            data-img="img/BABITA1.JPG"
            data-desc=""
            data-carac="Material: Algodon Pima ">
         <img src="img/BABITA1.JPG" alt="Correa retráctil">
         <p>BABITA PIMA CON FELPA (TRIPACK)</p>
-        <span>S/ 8.00</span>
+        <span>S/ 10.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
 
+       <div class="producto"      data-subcat="BABEROS"   onclick="abrirModal(this)"
+           data-id="K36-1" data-nombre="OMBLIGUERA DE ALGODON (TRIPACK)" data-precio="7"
+           data-img="img/OMBLIGUERA.JPG"
+           data-desc="Protege y cuida el ombligo de tu bebé con nuestras ombligueras de algodón suave. Diseñadas para mantener la zona seca, firme y protegida, incluyen cintas ajustables para un calce perfecto y seguro. Disponibles en una variedad de colores pastel."
+           data-carac="Fabricadas en 100% algodón de alta calidad, lo que permite que la piel del bebé respire, evitando irritaciones y rozaduras. Ideal para las pieles más sensibles.|Cada ombliguera cuenta con cintas largas de tela que permiten ajustar la prenda a la cintura del bebé con un lazo seguro. Esto garantiza que la ombliguera no se desplace durante el movimiento del pequeño.">
+        <img src="img/OMBLIGUERA.JPG" alt="Correa retráctil">
+        <p>OMBLIGUERA DE ALGODON (TRIPACK)</p>
+        <span>S/ 7.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+       <div class="producto"      data-subcat="BABEROS"   onclick="abrirModal(this)"
+           data-id="K36-2" data-nombre="PUNTAS DE TELA (TRIPACK)" data-precio="6"
+           data-img="img/PUNTAS.JPG"
+           data-desc="Protege y cuida el cordón umbilical de tu bebé con nuestras puntas de tela de algodón suaves y transpirables. Diseñadas en forma triangular para un ajuste seguro y cómodo, ideales para mantener la zona limpia y evitar roces. Disponibles en una variedad de colores pastel."
+           data-carac="Ayuda a mantener el área del ombligo libre de roces con la ropa, pañales o el aire, facilitando su cicatrización y previniendo irritaciones.|Proporciona una capa extra de abrigo en la zona abdominal, muy sensible para los recién nacidos.|Ayuda a mantener la zona seca y limpia, especialmente durante los primeros días de vida.">
+        <img src="img/PUNTAS.JPG" alt="Correa retráctil">
+        <p>PUNTAS DE TELA (TRIPACK)</p>
+        <span>S/ 6.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
       
                   <!-- ============================================
                                    COLCHAS
@@ -934,6 +1036,21 @@
                                    JUGUETES
                       ============================================ -->
 
+      <div class="producto"  data-subcat="JUGUETES" onclick="abrirModal(this)"
+           data-id="K49-2" data-nombre="SET 6 PELOTAS SENSORIALES DIDÁCTICAS PARA BEBÉ CON TEXTURAS" data-precio="15"
+           data-img="img/CAJAPELOTAS.JPG"
+           data-imgs="img/CAJAPELOTAS.JPG|img/CAJAPELOTAS1.JPG|img/CAJAPELOTAS2.JPG"
+           data-desc="Tu bebe descubrira un mundo de texturas y estímulos con las Pelotas Sensoriales! Estos juguetes fascinantes ofrecen una experiencia táctil y sensorial única para bebes."
+           data-carac="Son seguras y duraderas, fabricadas con materiales no tóxicos y resistentes.|Estas pelotas atraen la atención y despiertan la curiosidad de los pequeños. Cada pelota tiene una textura diferente, desde suave hasta rugosa y con relieve, brindando una variedad de sensaciones táctiles.|Estimulan la motricidad fina, la coordinación mano-ojo y la exploración sensorial. ">
+        <img src="img/CAJAPELOTAS.JPG" alt="Rascador premium">
+        <p>SET 6 PELOTAS SENSORIALES DIDÁCTICAS PARA BEBÉ CON TEXTURAS</p>
+        <span>S/ 15.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+
       <div class="producto"      data-subcat="JUGUETES"   onclick="abrirModal(this)"
            data-id="K48" data-nombre="ALFOMBRA SENSORIAL PARA BEBES" data-precio="12"
            data-img="img/ALFOMBRA.JPG"
@@ -941,6 +1058,33 @@
            data-carac="✋ Diseño sensorial: incorpora diferentes elementos visuales y/o táctiles para que el bebé explore durante el juego, según modelo.|🖐️ Exploración mediante el tacto: permite descubrir diferentes sensaciones mientras toca y manipula la superficie.|🏠 Práctica para jugar en casa: permite crear un espacio definido para actividades de estimulación.">
         <img src="img/ALFOMBRA.JPG" alt="Correa retráctil">
         <p>ALFOMBRA SENSORIAL PARA BEBES</p>
+        <span>S/ 12.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
+      <div class="producto"  data-subcat="JUGUETES" onclick="abrirModal(this)"
+           data-id="K49-1" data-nombre="OREJERA AISLANTES DE RUIDO PARA BEBES" data-precio="35"
+           data-img="img/OREJERA1.JPG"
+           data-imgs="img/OREJERA1.JPG|img/OREJERA1-1.JPG|img/OREJERA1-2.JPG|img/OREJERA1-3.JPG"
+           data-desc="Las Orejeras Antiruido Auriculares Protectores para Bebés son la solución ideal para cuidar la salud auditiva de los más pequeños. Diseñadas específicamente para ofrecer una protección efectiva."
+           data-carac="Estas orejeras son perfectas para situaciones como conciertos, eventos deportivos o viajes en avión, donde el ruido puede ser abrumador para los oídos sensibles de los niños.|Fabricadas con materiales de alta calidad, ofrecen durabilidad y resistencia, asegurando que sean un accesorio confiable en la vida diaria.|Con un enfoque en la seguridad y el bienestar, estas orejeras son una inversión esencial para los padres que desean proteger la audición de sus hijos desde una edad temprana.">
+        <img src="img/OREJERA1.JPG" alt="Rascador premium">
+        <p>OREJERA AISLANTES DE RUIDO PARA BEBES</p>
+        <span>S/ 35.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div>
+
+      <div class="producto"      data-subcat="JUGUETES"   onclick="abrirModal(this)"
+           data-id="K48-1" data-nombre="ALMOHADA DE TELA" data-precio="12"
+           data-img="img/ALMOHADA.JPG"
+           data-desc="Brinda el descanso que tu bebé merece con nuestras almohadas de tela ultra suaves. Diseñadas con delicados estampados y un acabado con vivo festoneado, son perfectas para el sueño, el coche o el cochecito. Disponibles en varios modelos y colores pastel."
+           data-carac="Proporciona un apoyo suave y cómodo para la cabeza del bebé durante sus siestas.| Ideal para usar en la cuna, el moisés, el cochecito o el auto.|Al ser de tela, se puede lavar con frecuencia para mantener un ambiente limpio y saludable.">
+        <img src="img/ALMOHADA.JPG" alt="Correa retráctil">
+        <p>ALMOHADA DE TELA</p>
         <span>S/ 12.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
