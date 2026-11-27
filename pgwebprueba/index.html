@@ -30,8 +30,16 @@
     <span class="luz"></span>
   </div>
 
-  <h1>🐾 TIENDA ENGREIDITOS 👶</h1>
-  <p>Consientelo como se merece</p>
+  <div class="header-contenido">
+    <!-- Logo a la izquierda -->
+    <img src="img/logo.png" alt="Logo ENGREIDITOS" class="logo">
+
+    <!-- Texto centrado -->
+    <div class="header-texto">
+      <h1>🐾 TIENDA ENGREIDITOS 👶</h1>
+      <p>Consientelo como se merece</p>
+    </div>
+  </div>
 
   <!-- ICONO CARRITO -->
   <button id="btn-carrito" class="btn-carrito" aria-label="Abrir carrito">
@@ -39,6 +47,9 @@
     <span id="contador-carrito">0</span>
   </button>
 </header>
+
+
+
 
    <!-- 🎄 BANNER NAVIDEÑO -->
 <div class="banner-navidad">
@@ -71,15 +82,14 @@
 
           <div class="submenu" id="submenu-perros">
             <button class="submenu-item" onclick="irASubcategoria('perros', 'todos', this)">Todos</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPA IMPORTADA', this)">Ropa Importada-Conjuntos</button>
+            <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPA IMPORTADA', this)">Ropa Importada-Conjuntos-Pijamas</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'PAÑALERA', this)">Pañalera-Canguros</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'ROPON', this)">Ropon</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'AJUAR', this)">Ajuar</button>
              <button class="submenu-item" onclick="irASubcategoria('perros', 'TOALLAS', this)">Toallas-Pañal</button>
              <button class="submenu-item" onclick="irASubcategoria('perros', 'COLCHAS', this)">Colchas</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'BABEROS', this)">Baberos-Mandiles-Ombliguera</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'MEDIAS', this)">Medias</button>
-            <button class="submenu-item" onclick="irASubcategoria('perros', 'EXTRACTOR', this)">Extractor</button>
+            <button class="submenu-item" onclick="irASubcategoria('perros', 'MEDIAS', this)">Medias</button>            
             <button class="submenu-item" onclick="irASubcategoria('perros', 'ASEO', this)">Linea de aseo y cuidado</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'MORDEDOR', this)">Mordedores-Set de alimentacion</button>
             <button class="submenu-item" onclick="irASubcategoria('perros', 'JUGUETES', this)">Juguetes y accesorios</button>
@@ -130,18 +140,19 @@
 
         <!-- PROMO 1 -->
         <div class="promo-card producto" onclick="abrirModal(this)"
-             data-id="promo1" data-nombre="TRIPACK DE MEDIA NAVIDEÑAS" data-precio="12"
-             data-img="img/MEDIASNAVIDEÑAS.JPG"
-             data-desc="Tejidas en algodón suave y elastizado que abraza el piecito sin apretar, mantienen el calorcito ideal para las noches de diciembre y son perfectas para las fotos de Navidad, las reuniones familiares y los regalos de temporada."
-             data-carac="Algodón suave y transpirable, amigable con la piel del bebé.|Puño elastizado que no marca ni aprieta.|Tallas: 0-6 meses y 6-12 meses.">
+             data-id="promo2" data-nombre="🎄❤️ ¡CONJUNTOS NAVIDEÑOS PREMIUM TALLA 2! ❤️🎄" data-precio="35"
+             data-img="img/NAVIDEÑO2-1.jpeg"
+             data-imgs="img/NAVIDEÑO2-1.jpeg|img/NAVIDEÑO2-2.jpeg"
+             data-desc="¡Hermosos modelitos para que tu bebé luzca precioso esta Navidad. 🎅🏻👶🏻"
+             data-carac="✨ 100% algodón Pima.|🌸 Material antialérgico, suave y delicado con la piel de tu bebé.">
           <div class="promo-imagen">
-            <img src="img/MEDIASNAVIDEÑAS.JPG" alt="Súper Pack">
+            <img src="img/NAVIDEÑO2-1.jpeg" alt="Ajuar Navideño">
             <span class="etiqueta-descuento nuevo">NUEVO</span>
           </div>
           <div class="promo-info">
-            <h3>TRIPACK DE MEDIA NAVIDEÑAS</h3>
-            <p class="promo-precio">S/ 12.00</p>
-            <p> Colores clásicos de temporada: rojo, verde y blanco.</p>
+            <h3>¡CONJUNTOS NAVIDEÑOS PREMIUM TALLA 2! 🎄❤️ </h3>
+            <p class="promo-precio">S/ 35.00</p>
+            <p>Hermosos modelitos para esta Navidad. 🎅🏻👶🏻</p>
             <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
               <i class="fas fa-cart-plus"></i> Agregar
             </button>
@@ -161,7 +172,7 @@
             <span class="etiqueta-descuento nuevo">NUEVO</span>
           </div>
           <div class="promo-info">
-            <h3>🎄❤️ ¡AJUARES NAVIDEÑOS!</h3>
+            <h3>¡AJUARES NAVIDEÑOS! 🎄❤️ </h3>
             <p class="promo-precio">S/ 14.00</p>
             <p>Hermosos modelitos para esta Navidad. 🎅🏻👶🏻</p>
             <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
@@ -173,11 +184,12 @@
         <!-- PROMO 3 -->
          <div class="promo-card producto" onclick="abrirModal(this)"
              data-id="promo3" data-nombre="BODYS NAVIDEÑOS TALLA 2" data-precio="15"
-             data-img="img/BODYNAVIDEÑO.JPG"
+             data-img="img/BODYNAVIDEÑO.jpeg"
+             data-imgs="img/BODYNAVIDEÑO.jpeg|img/BODYNAVIDEÑO1.jpeg|img/BODYNAVIDEÑO2.jpeg"
              data-desc="Celebra la primera Navidad de tu bebé con nuestros adorables bodys navideños en talla 2, diseñados especialmente para recién nacidos y bebés de 0 a 6 meses. Confeccionados en algodón suave y transpirable que cuida la piel sensible del bebé."
              data-carac="✨ 100% algodón Pima.|🌸 Material antialérgico">
           <div class="promo-imagen">
-            <img src="img/BODYNAVIDEÑO.JPG" alt="Mochila Anticaidas">
+            <img src="img/BODYNAVIDEÑO.jpeg" alt="Mochila Anticaidas">
             <span class="etiqueta-descuento nuevo">NUEVO</span>
           </div>
           <div class="promo-info">
@@ -191,7 +203,7 @@
         </div>
 
        
-        <!-- PROMO 4 -->
+        <!-- PROMO 4 -->      
         <div class="promo-card producto" onclick="abrirModal(this)"
              data-id="promo5" data-nombre="SÚPER PACK para tu engreíd@" data-precio="60"
              data-img="img/PACK1.jpeg"
@@ -199,7 +211,7 @@
              data-carac="Pañalera|Ajuar Algodón Yersey|Roponcito Micropolar|Toalla felpa|Colcha plush|Babita Pima|Medias algodón">
           <div class="promo-imagen">
             <img src="img/PACK1.jpeg" alt="Súper Pack">
-            <span class="etiqueta-descuento nuevo">POCAS UNIDADES</span>
+            <span class="etiqueta-descuento nuevo">PROMOCION</span>
           </div>
           <div class="promo-info">
             <h3>SÚPER PACK para tu engreíd@</h3>
@@ -327,6 +339,23 @@
                   <!-- ============================================
                                    MEDIAS
                       ============================================ -->
+
+
+       <div class="producto"  data-subcat="MEDIAS" onclick="abrirModal(this)"
+             data-id="K6-1" data-nombre="TRIPACK DE MEDIA NAVIDEÑAS" data-precio="12"
+             data-img="img/MEDIASNAVIDEÑAS.JPG"
+             data-desc="Tejidas en algodón suave y elastizado que abraza el piecito sin apretar, mantienen el calorcito ideal para las noches de diciembre y son perfectas para las fotos de Navidad, las reuniones familiares y los regalos de temporada."
+             data-carac="Algodón suave y transpirable, amigable con la piel del bebé.|Puño elastizado que no marca ni aprieta.|Tallas: 0-6 meses y 6-12 meses.">          
+            <img src="img/MEDIASNAVIDEÑAS.JPG" alt="Súper Pack">          
+            <p> TRIPACK DE MEDIA NAVIDEÑAS</p>
+            <span>S/ 12.00</span>
+            <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+              <i class="fas fa-cart-plus"></i> Agregar
+            </button>
+        </div>
+        
+        
+        
       <div class="producto"  data-subcat="MEDIAS" onclick="abrirModal(this)"
            data-id="K7" data-nombre="PAR DE MEDIAS SONAJERAS FELPA ESTIMULADORAS" data-precio="6"
            data-img="img/MEDIASSONAJERA.jpeg"
@@ -439,15 +468,8 @@
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
       </div>
-      
-      
 
-      
-                  <!-- ============================================
-                                   EXTRACTOR
-                      ============================================ -->
-
-      <div class="producto"   data-subcat="EXTRACTOR"   onclick="abrirModal(this)"
+      <div class="producto"   data-subcat="ASEO"  onclick="abrirModal(this)"
            data-id="K13" data-nombre="EXTRACTOR MANUAL DE LECHE SANTOLEE" data-precio="30"
            data-img="img/EXTRACTOR.JPG"
            data-desc=""
@@ -458,10 +480,11 @@
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
           <i class="fas fa-cart-plus"></i> Agregar
         </button>
-      </div>
+     </div>
 
 
-      
+    
+
                   <!-- ============================================
                                    TOALLAS
                       ============================================ -->
@@ -542,6 +565,7 @@
      <div class="producto"   data-subcat="ROPON"  onclick="abrirModal(this)"
            data-id="K16" data-nombre="ROPON HILO TACTO" data-precio="18"
            data-img="img/ROPONHILO.JPG"
+           data-imgs="img/ROPONHILO.JPG|img/ROPONHILO1.jpeg"
            data-desc=""
            data-carac="Material: Hilo">
         <img src="img/ROPONHILO.JPG" alt="Correa retráctil">
@@ -636,6 +660,7 @@
      <div class="producto"  data-subcat="ROPON" onclick="abrirModal(this)"
            data-id="K23" data-nombre="ROPON POLLITO DE LANA" data-precio="9"
            data-img="img/ROPONPOLLITO.JPG"
+          data-imgs="img/ROPONPOLLITO.JPG|img/ROPONPOLLITO1.jpeg"
            data-desc=""
            data-carac="Material: Lana|Set de 4 piezas">
         <img src="img/ROPONPOLLITO.JPG" alt="Correa retráctil">
@@ -1092,10 +1117,11 @@
 
       <div class="producto"      data-subcat="ROPA IMPORTADA"   onclick="abrirModal(this)"
            data-id="K50" data-nombre="CONJUNTO TIRANTE Y POLO - MODELO OSITO TALLA 2" data-precio="45"
-           data-img="img/CONJUNTOTIRANTE.JPG"
+           data-img="img/CONJUNTOTIRANTE.jpeg"
+           data-imgs="img/CONJUNTOTIRANTE.jpeg|img/CONJUNTOTIRANTE1.jpeg"
            data-desc="Viste a tu pequeño con el encanto y la elegancia de nuestro conjunto de polo con tirantes, un modelo tierno y versátil ideal para ocasiones especiales, fotos familiares o reuniones. La parte superior es un polo de manga corta en color blanco con un delicado estampado de ositos y pequeños detalles, que se complementa con un moño de pajarita a juego y tirantes ajustables con broches que le dan un toque clásico y distinguido."
            data-carac="Polo de algodón suave y transpirable, con estampado de ositos.|Short con cintura elástica y botones decorativos para un ajuste cómodo.">
-        <img src="img/CONJUNTOTIRANTE.JPG" alt="Correa retráctil">
+        <img src="img/CONJUNTOTIRANTE.jpeg" alt="Correa retráctil">
         <p>CONJUNTO TIRANTE Y POLO - MODELO OSITO TALLA 2</p>
         <span>S/ 45.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
@@ -1106,10 +1132,11 @@
     
      <div class="producto"      data-subcat="ROPA IMPORTADA"   onclick="abrirModal(this)"
            data-id="K51" data-nombre="CONJUNTO POLO Y SHORT - MODELO MARIPOSA TALLA 2" data-precio="25"
-           data-img="img/CONJUNTOMARIPOSA.JPG"
+           data-img="img/CONJUNTOMARIPOSA.jpeg"
+          data-imgs="img/CONJUNTOMARIPOSA.jpeg|img/CONJUNTOMARIPOSA1.jpeg"
            data-desc="Un conjunto fresco y lleno de color para las pequeñas de la casa. Este lindo set de dos piezas está conformado por un polo de manga corta con escote redondo y un delicado detalle de mariposa estampada en el pecho, y un short en azul marino con puños decorados con pequeños motivos florales. Su diseño ligero y cómodo es perfecto para los días cálidos y para que tu niña se mueva con total libertad."
            data-carac="Polo de tela suave y transpirable, con escote redondo y detalle de mariposa.|Diseño fresco y cómodo, ideal para el día a día.|Talla: 2 (ideal para niñas de 1 a 2 años, según complexión).">
-        <img src="img/CONJUNTOMARIPOSA.JPG" alt="Correa retráctil">
+        <img src="img/CONJUNTOMARIPOSA.jpeg" alt="Correa retráctil">
         <p>CONJUNTO POLO Y SHORT - MODELO MARIPOSA TALLA 2</p>
         <span>S/ 25.00</span>
         <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
@@ -1117,9 +1144,24 @@
         </button>
       </div> 
 
+     
+
+      <div class="producto"      data-subcat="ROPA IMPORTADA"   onclick="abrirModal(this)"
+           data-id="K51" data-nombre="PIJAMA POLO Y SHORT TALLA 2 Y 4" data-precio="20"
+           data-img="img/PIJAMA1-2.jpeg"
+          data-imgs="img/PIJAMA1-2.jpeg|img/PIJAMA1-1.jpeg|img/PIJAMA1.jpeg"
+           data-desc="Conjunto de pijama infantil de dos piezas (polo de manga corta y short) confeccionado en color blanco. El diseño es tierno y colorido, pensado para un niño o niña pequeño. La prenda se ve fresca y ligera, ideal para dormir en climas cálidos o temporadas de primavera/verano.."
+           data-carac="Consta de una camiseta tipo polo (manga corta) y un short a juego.|Material 100% Algodón Pima|Costuras suaves y refuerzos en cuello y puños, propios de una prenda de calidad premium como el Pima">
+        <img src="img/PIJAMA1-2.jpeg" alt="Correa retráctil">
+        <p>PIJAMA POLO Y SHORT TALLA 2 Y 4</p>
+        <span>S/ 20.00</span>
+        <button class="btn-agregar" onclick="event.stopPropagation(); agregarAlCarrito(this)">
+          <i class="fas fa-cart-plus"></i> Agregar
+        </button>
+      </div> 
+
       </div>  
     </section>
-
 
 
 
