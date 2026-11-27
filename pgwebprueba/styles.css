@@ -1150,3 +1150,98 @@ footer {
   }
 }
 
+
+
+/* ============================================
+   HEADER: LOGO A LA IZQUIERDA + NOMBRE CENTRADO
+============================================ */
+header {
+  position: relative;
+  padding: 45px 30px 30px;     /* 👈 espacio arriba para la guirnalda */
+  text-align: center;
+}
+
+.header-contenido {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+}
+
+/* Logo a la izquierda */
+.logo {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.logo:hover {
+  transform: translateY(-50%) scale(1.06) rotate(-3deg);
+}
+
+/* Texto centrado */
+.header-texto {
+  text-align: center;
+  padding: 0 140px;           /* 👈 deja espacio al logo (izq) y carrito (der) */
+}
+
+.header-texto h1 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  line-height: 1.1;
+}
+
+.header-texto p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Responsive: en celular todo se centra y el logo va arriba */
+@media (max-width: 700px) {
+  header {
+    padding: 35px 20px 25px;
+  }
+
+  .header-contenido {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    margin-bottom: 15px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo:hover {
+    transform: scale(1.06) rotate(-3deg);
+  }
+
+  .header-texto {
+    padding: 0;
+  }
+
+  .header-texto h1 {
+    font-size: 2rem;
+  }
+
+  .header-texto p {
+    font-size: 1rem;
+  }
+}
